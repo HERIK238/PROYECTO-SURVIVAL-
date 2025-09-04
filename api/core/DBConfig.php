@@ -18,10 +18,18 @@ class DBConfig {
             // Crea la conexión a la base de datos
             $this->db = new PDO($dsn, $config['user'], $config['password']);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $this->db;
         } catch (PDOException $e) {
             // Muestra el error de la base de datos
-            die('Error de conexión: ' . $e->getMessage());
+            http_response_code(500);
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'Error de conexión a la base de datos',
+                'error'   => $e->getMessage()
+            ]);
+            exit;
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
-// Incluir un archivo de conexión a la base de datos
+// Incluir archivo de conexión a la base de datos
 require_once './core/DBConfig.php';
+
 // Crear variable de sesión
 session_start();
 
@@ -11,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit;
 }
 
-// Validar y sanitizar datos
-$required_fields = ['first_name', 'last_name', 'phone', 'username', 'email', 'password'];
+// Validar solo los campos que el formulario envía
+$required_fields = ['email', 'username', 'password'];
 foreach ($required_fields as $field) {
     if (!isset($_POST[$field]) || empty(trim($_POST[$field]))) {
         http_response_code(400);
@@ -21,13 +22,10 @@ foreach ($required_fields as $field) {
     }
 }
 
-// Obtener datos
+// Obtener y sanitizar datos
 $data = [
-    'first_name' => filter_var($_POST['first_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-    'last_name' => filter_var($_POST['last_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-    'phone' => preg_replace('/[^0-9+]/', '', $_POST['phone']),
-    'username' => filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
     'email' => filter_var($_POST['email'], FILTER_SANITIZE_EMAIL),
+    'username' => filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
     'password' => $_POST['password']
 ];
 
@@ -43,46 +41,41 @@ $hashed_password = password_hash($data['password'], PASSWORD_BCRYPT);
 
 try {
     // Crear conexión a la base de datos
-    $auth = new DBconfig();
+    $auth = new DBConfig();
     $db = $auth->getConnection();
     
     // Verificar si el email o username ya existen
-    $sql = "SELECT * FROM users WHERE email = :email OR username = :username OR phone = :phone";
+    $sql = "SELECT * FROM users WHERE email = :email OR username = :username";
     $stmt = $db->prepare($sql);
     $stmt->execute([
         ':email' => $data['email'],
-        ':username' => $data['username'],
-        ':phone' => $data['phone']
+        ':username' => $data['username']
     ]);
     
     if ($stmt->rowCount() > 0) {
         echo json_encode([
             'status' => 'error',
-            'message' => 'Email, username or phone already in use.'
+            'message' => 'Email or username already in use.'
         ]);
         exit;
     }
     
-    // Insertar nuevo usuario
-    $sql = "INSERT INTO users (first_name, last_name, phone, username, email, password) 
-            VALUES (:first_name, :last_name, :phone, :username, :email, :password)";
-    
+    // Insertar nuevo usuario (solo los campos del formulario)
+    $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
     $stmt = $db->prepare($sql);
     $stmt->execute([
-        ':first_name' => $data['first_name'],
-        ':last_name' => $data['last_name'],
-        ':phone' => $data['phone'],
-        ':username' => $data['username'],
         ':email' => $data['email'],
+        ':username' => $data['username'],
         ':password' => $hashed_password
     ]);
     
-    // Obtener el ID del usuario recién creado
     $user_id = $db->lastInsertId();
     
-    // Crear sesión
+    // Crear sesión con los datos disponibles
     $_SESSION['user_id'] = $user_id;
     $_SESSION['username'] = $data['username'];
+    $_SESSION['email'] = $data['email'];
+    $_SESSION['logged_in'] = true;
     
     echo json_encode([
         'status' => 'success',
@@ -92,7 +85,6 @@ try {
     
 } catch (PDOException $e) {
     http_response_code(500);
-    error_log("Database error: " . $e->getMessage());
     echo json_encode([
         'status' => 'error',
         'message' => 'Database error: ' . $e->getMessage()

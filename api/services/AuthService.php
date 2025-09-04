@@ -25,15 +25,17 @@ class AuthService {
         session_start();
         $_SESSION['logged_in'] = true;
         $_SESSION['user_id'] = $user['user_id'];
-        $_SESSION['first_name'] = $user['first_name'];
-        $_SESSION['last_name'] = $user['last_name'];
+        $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
-        $_SESSION['phone'] = $user['phone'];
 
         return [
             'status' => 'success',
             'message' => 'Login exitoso',
-            'user_data' => $user
+            'user_data' => [
+                'user_id' => $user['user_id'],
+                'username' => $user['username'],
+                'email' => $user['email']
+            ]
         ];
     }
 }
