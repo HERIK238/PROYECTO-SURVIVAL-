@@ -2,18 +2,11 @@
 // Incluir archivo de conexión a la base de datos
 require_once './core/DBConfig.php';
 
-file_put_contents("debug_log.txt", "Método: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
-header('Content-Type: application/json');
-echo json_encode([
-    'method' => $_SERVER['REQUEST_METHOD'],
-    'post'   => $_POST,
-    'get'    => $_GET,
-    'server' => $_SERVER['REQUEST_URI']
-]);
-exit;
-
 // Crear variable de sesión
 session_start();
+
+// Log para verificar el método
+file_put_contents("debug_log.txt", "Método: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
 
 // Verificar método POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
@@ -70,7 +63,7 @@ try {
         exit;
     }
     
-    // Insertar nuevo usuario (solo los campos del formulario)
+    // Insertar nuevo usuario
     $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
     $stmt = $db->prepare($sql);
     $stmt->execute([
@@ -81,7 +74,7 @@ try {
     
     $user_id = $db->lastInsertId();
     
-    // Crear sesión con los datos disponibles
+    // Crear sesión
     $_SESSION['user_id'] = $user_id;
     $_SESSION['username'] = $data['username'];
     $_SESSION['email'] = $data['email'];
@@ -100,4 +93,3 @@ try {
         'message' => 'Database error: ' . $e->getMessage()
     ]);
 }
-?>
