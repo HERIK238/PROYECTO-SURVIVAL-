@@ -14,6 +14,7 @@
 
   <!-- Tu Script -->
   <script defer src="../js/script.js"></script>
+   <script defer src="../js/auth.js"></script>
 </head>
 <body>
   <div id="back">
@@ -28,7 +29,7 @@
       <div class="left">
         <div class="content">
           <h2>Sign Up</h2>
-          <form id="form-signup" method="post" onsubmit="return false;">
+          <form id="form-signup" method="post" >
             <div class="form-element form-stack">
               <label for="email-signup" class="form-label">Email</label>
               <input id="email-signup" type="email" name="email">
@@ -57,7 +58,7 @@
       <div class="right">
         <div class="content">
           <h2>Login</h2>
-          <form id="form-login" method="post" onsubmit="return false;">
+          <form id="form-login" method="post" >
             <div class="form-element form-stack">
               <label for="username-login" class="form-label">Username</label>
               <input id="username-login" type="text" name="username">

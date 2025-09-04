@@ -81,7 +81,7 @@ $('#logIn').on('click', function () {
   const password = $('#password-login').val();
 
   $.ajax({
-    url: 'login.php',
+    url: 'auth.php',
     method: 'POST',
     data: {
       action: 'login',
@@ -109,7 +109,7 @@ $('#signUp').on('click', function () {
   const password = $('#password-signup').val();
 
   $.ajax({
-    url: 'login.php',
+    url: 'auth.php',
     method: 'POST',
     data: {
       action: 'register',
@@ -127,7 +127,7 @@ $('#signUp').on('click', function () {
       }
     },
     error: function (xhr, status, error) {
-      console.error('Error en el registro AJAX:', error);
+      console('Error en el registro AJAX:', error)
     }
   });
 });

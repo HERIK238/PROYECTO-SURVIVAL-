@@ -2,6 +2,16 @@
 // Incluir archivo de conexión a la base de datos
 require_once './core/DBConfig.php';
 
+file_put_contents("debug_log.txt", "Método: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
+header('Content-Type: application/json');
+echo json_encode([
+    'method' => $_SERVER['REQUEST_METHOD'],
+    'post'   => $_POST,
+    'get'    => $_GET,
+    'server' => $_SERVER['REQUEST_URI']
+]);
+exit;
+
 // Crear variable de sesión
 session_start();
 

@@ -1,9 +1,11 @@
 <?php
+var_dump(__DIR__ . '/.env', file_exists(__DIR__ . '/.env'));
+exit;
 
 require_once __DIR__ . '/env.php';
 
 // Cargar el archivo .env
-EnvLoader::load(__DIR__ . '/../../.env');
+EnvLoader::load(__DIR__ . '/.env');
 
 // Mapear las variables de NuevoProyecto a la estructura de Survival
 return [
