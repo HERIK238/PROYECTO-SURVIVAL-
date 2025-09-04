@@ -127,7 +127,7 @@ $('#signUp').on('click', function () {
       }
     },
     error: function (xhr, status, error) {
-      console.error('Error en el registro AJAX:', error);
+      console.log('Error en el registro AJAX:', error);
     }
   });
 });
