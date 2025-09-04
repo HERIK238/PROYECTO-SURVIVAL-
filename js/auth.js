@@ -40,7 +40,7 @@ $(document).ready(function() {
 
         // Petición AJAX para login
         $.ajax({
-            url: '/PROYECTO-SURVIVAL-/api/reg_user.php',
+            url: '/PROYECTO-SURVIVAL-/api/auth_user.php',
             method: 'POST',
             data: { username: username, password: password },
             dataType: 'json',
