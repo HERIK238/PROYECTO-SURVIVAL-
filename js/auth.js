@@ -52,7 +52,7 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr, status, error) {
-                console.log("Error AJAX login:", error),
+                console.error("Error AJAX login:", error),
                 alert("Ocurrió un error en el inicio de sesión.");
             }
         });
@@ -86,7 +86,7 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr, status, error) {
-                console.log("Error AJAX registro:", error),
+                console.error("Error AJAX registro:", error),
                 alert("Ocurrió un error durante el registro.");
             }
         });

@@ -98,7 +98,7 @@ $('#logIn').on('click', function () {
       }
     },
     error: function (xhr, status, error) {
-      console.log('Error en la petición AJAX:', error);
+      console.error('Error en la petición AJAX:', error);
     }
   });
 });
@@ -127,7 +127,7 @@ $('#signUp').on('click', function () {
       }
     },
     error: function (xhr, status, error) {
-      console.log('Error en el registro AJAX:', error);
+      console.error('Error en el registro AJAX:', error);
     }
   });
 });
