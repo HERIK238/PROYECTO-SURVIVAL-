@@ -86,7 +86,7 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr, status, error) {
-                console.error("Error AJAX registro:", error),
+                console.log("Error AJAX registro:", error),
                 alert("Ocurrió un error durante el registro.");
             }
         });
