@@ -2,6 +2,11 @@
 // Siempre devolver JSON
 header("Content-Type: application/json; charset=UTF-8");
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+header('Content-Type: application/json; charset=utf-8');
+
 // Incluir archivo de conexión a la base de datos
 require_once './core/DBConfig.php';
 

@@ -24,7 +24,7 @@ class AuthService {
         // Iniciar sesión
         session_start();
         $_SESSION['logged_in'] = true;
-        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
 
@@ -32,7 +32,7 @@ class AuthService {
             'status' => 'success',
             'message' => 'Login exitoso',
             'user_data' => [
-                'user_id' => $user['user_id'],
+                'user_id' => $user['id'],
                 'username' => $user['username'],
                 'email' => $user['email']
             ]
