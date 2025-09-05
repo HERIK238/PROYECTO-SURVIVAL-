@@ -1,4 +1,7 @@
 <?php
+// Siempre devolver JSON
+header("Content-Type: application/json; charset=UTF-8");
+
 // Incluir archivo de conexión a la base de datos
 require_once './core/DBConfig.php';
 
