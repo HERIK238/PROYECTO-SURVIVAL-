@@ -14,14 +14,14 @@ require_once './core/DBConfig.php';
 session_start();
 
 // Log para verificar el método
-file_put_contents("debug_log.txt", "Método: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND);
+/* file_put_contents("debug_log.txt", "Método: " . $_SERVER["REQUEST_METHOD"] . "\n", FILE_APPEND); */
 
-// Verificar método POST
+/* // Verificar método POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     http_response_code(405);
     echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
     exit;
-}
+} */
 
 // Validar solo los campos que el formulario envía
 $required_fields = ['email', 'username', 'password'];
