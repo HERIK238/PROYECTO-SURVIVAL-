@@ -144,3 +144,7 @@ main {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
+#dashboard-content-wrapper .nav-link {
+  border: 1px solid blue !important;
+}
