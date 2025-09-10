@@ -6,17 +6,21 @@
   <title>Login / Sign Up</title>
   <link rel="stylesheet" href="../css/style.css">
   
-  <!-- jQuery desde CDN (evita 404) -->
+  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   <!-- Paper.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
 
-  <!-- Tu Script -->
+  <!-- Scripts -->
   <script defer src="../js/script.js"></script>
-   <script defer src="../js/auth.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/theme.js"></script>
 </head>
 <body>
+  <!-- Botón para cambiar de tema -->
+  <button id="theme-toggle">🌙 Dark Mode</button>
+
   <div id="back">
     <canvas id="canvas" class="canvas-back" resize></canvas>
     <div class="backRight"></div>
