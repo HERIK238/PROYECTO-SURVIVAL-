@@ -15,3 +15,34 @@ body {
   border-radius: 6px;
   font-size: 14px;
 }
+
+#info {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Orbitron", Arial, sans-serif; /* estilo futurista */
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  border: 2px solid #00ffff;
+}
+
+#contador {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00ff88;
+  text-shadow: 0 0 5px #00ff88;
+  margin-bottom: 5px;
+}
+
+#tiempo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff4444;
+  text-shadow: 0 0 5px #ff4444;
+}
