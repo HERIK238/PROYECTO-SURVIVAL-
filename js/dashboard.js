@@ -12,7 +12,7 @@ $(function () {
 $(document).ready(function() {
     // Manejo del envío del formulario de inicio de sesión
     $('#logout-btn').click(function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
         LogoutUser();
     });
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         event.preventDefault();
         window.location.href = "../views/homelab.php";
     });
-    
+
 });
 
 function LogoutUser() {
@@ -42,3 +42,25 @@ function LogoutUser() {
         }
     });
 }
+
+// Image rotator for background
+$(document).ready(function() {
+    const images = [
+        '../assets/icons/1.jpg',
+        '../assets/icons/2.jpg',
+        '../assets/icons/3.jpg',
+        '../assets/icons/4.jpg'
+    ];
+    let currentIndex = 0;
+
+    function changeBackground() {
+        $('body').css('background-image', 'url("' + images[currentIndex] + '")');
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // Initial background
+    changeBackground();
+
+    // Change background every 5 seconds
+    setInterval(changeBackground, 5000);
+});

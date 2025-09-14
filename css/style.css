@@ -74,29 +74,29 @@ input {
   width: 50%;
   height: 100%;
   overflow: scroll;
-  background: #2c3034;
+  background: #2c3034; /* oscuro por defecto */
   left: 0;
   position: absolute;
 }
 
 .left label {
-  color: #000000;
+  color: #03a9f4;
 }
 
 .left input {
-  border-bottom: 1px solid #e3e3e3;
-  color: #e3e3e3;
+  border-bottom: 1px solid #03a9f4;
+  color: #03a9f4;
 }
 
 .left input:focus,
 .left input:active {
-  border-color: #03a9f4;
-  color: #03a9f4;
+  border-color: #0288d1;
+  color: #0288d1;
 }
 
 .left input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #2c3034 inset;
-  -webkit-text-fill-color: #e3e3e3;
+  -webkit-text-fill-color: #03a9f4;
 }
 
 .left a {
@@ -107,22 +107,24 @@ input {
   width: 50%;
   height: 100%;
   overflow: scroll;
-  background: #2c3034;
+  background: #2c3034; /* oscuro por defecto */
   right: 0;
   position: absolute;
 }
 
 .right label {
-  color: #119e28;
+  color: #ff0000;
 }
 
 .right input {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #ff0000;
+  color: #ff0000;
 }
 
 .right input:focus,
 .right input:active {
-  border-color: #ff0000;
+  border-color: #d32f2f;
+  color: #ff6969;
 }
 
 .right input:-webkit-autofill {
@@ -238,7 +240,7 @@ button.signup {
 }
 
 button.login {
-  background: #cc0000;
+  background: #ff0000;
 }
 
 button.off {
@@ -248,12 +250,12 @@ button.off {
 }
 
 button.off.signup {
-  background: #ff0000;
+  background: rgba(3,169,244,0.4);
   color: #ffffff;
 }
 
 button.off.login {
-  background: #8173ff;
+  background: rgba(255,0,0,0.4);
   color: #ffffff;
 }
 
@@ -266,13 +268,13 @@ button:hover {
 button.signup:focus,
 button.signup:active,
 button.signup:hover {
-  background: #00b7ff;
+  background: #0288d1;
 }
 
 button.login:focus,
 button.login:active,
 button.login:hover {
-  background: #ff0000;
+  background: #d32f2f;
 }
 
 button.off:focus,
@@ -284,76 +286,61 @@ button.off:hover {
 button.off.signup:focus,
 button.off.signup:active,
 button.off.signup:hover {
-  color: #ff0000;
+  color: #03a9f4;
   background: #212121;
 }
 
 button.off.login:focus,
 button.off.login:active,
 button.off.login:hover {
-  color: #8173ff;
+  color: #ff0000;
   background: #212121;
 }
 
-@media only screen and (max-width: 768px) {
-  #slideBox {
-    width: 80%;
-    margin-left: 20%;
-  }
-
-  .signup-info,
-  .login-info {
-    display: none;
-  }
+/* ---- Tema oscuro ---- */
+body.dark-mode {
+  background: #121212 !important;
+  color: #e3e3e3 !important;
 }
 
-#email{
-  color: white;
+/* Fondo de los lados → NEGRO */
+body.dark-mode .backLeft,
+body.dark-mode .backRight {
+  background: #000 !important;
 }
 
-#input-color {
-  text-emphasis-color: #ffffff;
+/* Azul (lado izquierdo) */
+body.dark-mode .left label,
+body.dark-mode .left input,
+body.dark-mode .left .content h2 {
+  color: #4da6ff !important;
+  border-color: #4da6ff !important;
 }
 
-
-#username-login,
-#password-login {
-  color: #ffffff;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ffffff;
-  width: 100%;
+/* Rojo (lado derecho) */
+body.dark-mode .right label,
+body.dark-mode .right input,
+body.dark-mode .right .content h2 {
+  color: #ff5c5c !important;
+  border-color: #ff5c5c !important;
 }
 
-#username-login:focus,
-#username-login:active,
-#username-login:hover,
-#password-login:focus,
-#password-login:active,
-#password-login:hover
- {
-  color: #ff6969;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ff5757;
-}
+body.dark-mode button.signup { background: #4da6ff !important; }
+body.dark-mode button.login  { background: #ff5c5c !important; }
 
-#signupinput {
-  color: #ffffff;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ffffff;
-  width: 100%;
+/* Toggle */
+#theme-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  color: inherit;
+  border: 2px solid rgba(0,0,0,0.12);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
 }
-#signupinput:focus,
-#signupinput:active, 
-#signupinput:hover {
-  color: #6ac8ff;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #73c7ff;
-}
-
-.loginh2{
-  color: #ff0000;
+body.dark-mode #theme-toggle {
+  border-color: rgba(255,255,255,0.12);
 }
