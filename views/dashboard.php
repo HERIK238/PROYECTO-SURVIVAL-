@@ -19,6 +19,9 @@
 
     <!-- Icono -->
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
@@ -77,67 +80,93 @@
     </svg>
 
     <main class="d-flex flex-nowrap vh-100">
-        
-        
 
-        <div class="d-flex flex-column flex-grow-1">
-            <div class="flex-grow-1 p-4" style="overflow-y: auto; display: flex; justify-content: center; align-items: center;">
-                <div id="dashboard-content-wrapper" style="border: 1px solid blue;">
-                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <img src="../assets/icons/juran.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                        <span class="fs-4">Survival</span>
+        <!-- Sidebar -->
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="../assets/icons/juran.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <span class="fs-4">Survival</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item mb-2">
+                    <a href="../views/index.html" class="nav-link active" aria-current="page">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                        Survival
                     </a>
-                    <hr>
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item mb-2">
-                            <a href="../views/homelab.php" class="nav-link active" aria-current="page">
-                                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                                Survival
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link text-white">
-                                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                                Customers
-                            </a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="dropdown">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                            <strong>mdo</strong>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><button id="logout-btn" class="btn dropdown-item logout-btn">Logout</button></li>
-                        </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                        Orders
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                        Customers
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>mdo</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button id="logout-btn" class="btn dropdown-item logout-btn">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content" class="d-flex flex-column flex-grow-1 p-4" style="overflow-y: auto;">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Bienvenido al dashboard. Aquí puedes ver un resumen de la actividad.</p>
+                
+                <!-- Example content -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Estadísticas</h5>
+                                <p class="card-text">Usuarios activos: 1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Actividad Reciente</h5>
+                                <p class="card-text">No hay actividad reciente.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <?php require_once('../ui/footer.php'); ?>
+
+            <div class="mt-auto">
+                <?php require_once('../ui/footer.php'); ?>
+            </div>
         </div>
+
     </main>
 
 </body>
