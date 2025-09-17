@@ -12,16 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
   </head>
   <body>
 
     <a-scene physics="gravity: -9.8">
       <!-- Piso -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png" static-body></a-plane>
-
-
-      
 
       <!-- Paredes -->
       <a-box position="0 2 -50" depth="0.1" height="10" width="100" repeat = "3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg" static-body></a-box>
@@ -92,5 +88,6 @@
     </div>
     
     <script src="../js/mapa.js"></script>
+    <script src="../js/wall-collider.js"></script>
   </body>
 </html>

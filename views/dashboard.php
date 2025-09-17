@@ -90,7 +90,7 @@
                     <hr>
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item mb-2">
-                            <a href="../views/homelab.php" class="nav-link active" aria-current="page">
+                            <a href="../views/index.html" class="nav-link active" aria-current="page">
                                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                                 Survival
                             </a>
