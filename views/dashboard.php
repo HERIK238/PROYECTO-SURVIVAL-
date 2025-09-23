@@ -20,7 +20,7 @@
     <!-- Icono -->
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS .-->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
