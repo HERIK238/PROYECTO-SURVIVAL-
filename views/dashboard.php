@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <!-- CSS -->
+    <!-- CSS .-->
     <link href="../dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/sidebar.css" rel="stylesheet">
     <link href="../css/dashboard.css" rel="stylesheet">
