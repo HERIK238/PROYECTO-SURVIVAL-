@@ -46,3 +46,24 @@ body {
   color: #ff4444;
   text-shadow: 0 0 5px #ff4444;
 }
+
+#back-button-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: "Orbitron", Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  border: 2px solid #00ffff;
+  z-index: 10;
+}
+
+#back-button-container a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff;
+}

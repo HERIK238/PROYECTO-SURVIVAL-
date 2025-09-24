@@ -1,7 +1,7 @@
 
 let totalCajas = 6; 
 let cajasAgarradas = 0;
-let tiempoRestante = 7000; // segundos
+let tiempoRestante = 300; // 5 minutos
 let intervalo;
 
 // Mostrar HUD
