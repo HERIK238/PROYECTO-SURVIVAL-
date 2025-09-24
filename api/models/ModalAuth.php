@@ -37,11 +37,12 @@ class User {
     public function insertUser($data) {
         try {
             $sql = "INSERT INTO users 
-                    (username, email, estado, password, rol)
-                    VALUES (:username, :email, :estado, :password, :rol)";
+                    (username, email, estado, password, rol, documento)
+                    VALUES (:username, :email, :estado, :password, :rol, :documento)";
 
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':username', $data['username'], PDO::PARAM_STR);
+            $stmt->bindParam(':documento', $data['documento'], PDO::PARAM_STR);
             $stmt->bindParam(':email',    $data['email'],    PDO::PARAM_STR);
             $stmt->bindParam(':estado',   $data['estado'],   PDO::PARAM_STR);
             $stmt->bindParam(':password', $data['password'], PDO::PARAM_STR);
