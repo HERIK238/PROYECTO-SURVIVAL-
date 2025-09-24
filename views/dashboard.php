@@ -195,6 +195,12 @@
               <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" required>
             </div>
 
+            <!-- documento -->
+            <div class="col-md-6">
+              <label for="documento" class="form-label">documento</label>
+              <input type="text" class="form-control" id="documento" name="documento" required>
+            </div>
+
             <!-- Correo -->
             <div class="col-md-6">
               <label for="email" class="form-label">Correo electrónico</label>

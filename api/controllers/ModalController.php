@@ -22,6 +22,7 @@ class ModalController {
 
         // Aquí se reciben los datos enviados por el modal
         $username = $_POST['nombre_completo'] ?? '';
+        $documento = $_POST['documento'] ?? '';
         $email    = $_POST['email'] ?? '';
         $status   = $_POST['estado'] ?? '';
         $password = $_POST['password'] ?? '';
@@ -32,7 +33,8 @@ class ModalController {
             empty($email) ||
             empty($status) ||
             empty($password) ||
-            empty($role)
+            empty($role) ||
+            empty($documento)
         ) {
             $this->sendResponse(['status' => 'error', 'message' => 'Datos incompletos'], 400);
             return;
@@ -40,7 +42,7 @@ class ModalController {
 
         try {
             // Llama al servicio para crear el usuario
-            $result = $this->userService->createUser($username, $email, $status, $password, $role);
+            $result = $this->userService->createUser($username, $email, $status, $password, $role, $documento);
             $this->sendResponse($result);
         } catch (Exception $e) {
             $this->sendResponse(['status' => 'error', 'message' => $e->getMessage()], 500);

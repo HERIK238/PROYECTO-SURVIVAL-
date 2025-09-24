@@ -11,13 +11,14 @@ class UserService {
     }
 
     // Crea un nuevo usuario
-    public function createUser($username, $email, $status, $password, $role) {
+    public function createUser($username, $email, $status, $password, $role, $documento) {
         // Encripta la contraseña
         $hash = password_hash($password, PASSWORD_BCRYPT);
 
         // Llama al modelo para guardar
         $nuevoId = $this->userModel->insertUser([
             'username' => $username,
+            'documento' => $documento,
             'email'    => $email,
             'estado'   => $status,
             'password' => $hash,

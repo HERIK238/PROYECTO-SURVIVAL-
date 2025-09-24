@@ -12,33 +12,32 @@ $(document).ready(function () {
         // Serializa todos los campos del formulario
         var datos = $(this).serialize();
 
-        // Petición Ajax al endpoint que acabamos de crear
+        // Petición Ajax al endpoint PHP
         $.ajax({
-            url: '/PROYECTO-SURVIVAL-/api/crear_usuario_modal.php', // ⚠️ Ajusta la ruta según la ubicación real del dashboard
+            url: '/PROYECTO-SURVIVAL-/api/crear_usuario_modal.php', // Ajusta según la ubicación real
             type: 'POST',
             data: datos,
-            success: function (respuesta) {
+            dataType: 'json', // Espera respuesta JSON
+            success: function (r) {
 
-                // Si la respuesta viene en string la convertimos a objeto
-                var r = (typeof respuesta === 'string') ? JSON.parse(respuesta) : respuesta;
-
-                if (r.ok) {
+                // Manejo de respuesta según status
+                if (r.status === 'success') {
                     // ✅ Usuario creado correctamente
-                    alert(r.mensaje);
-
-                    // Cerrar modal
-                    $('#crearUsuarioModal').modal('hide');
-
-                    // Limpiar formulario
-                    $('#formUsuarioDashboard')[0].reset();
+                    alert(r.message);
                 } else {
-                    // ❗ Hubo un error que vino desde el PHP
-                    alert('Error: ' + (r.error || 'Error desconocido'));
+                    // ❗ Error del PHP
+                    alert('Error: ' + r.message);
                 }
             },
-            error: function (xhr) {
-                // ❗ Error de red o respuesta no válida
-                alert('Error al enviar los datos. Código: ' + xhr.status);
+            error: function (xhr, status, error) {
+                // ❗ Error de red o del servidor
+                alert('Ocurrió un error. Revisa los datos e inténtalo de nuevo.');
+                console.error("Error AJAX:", xhr.responseText);
+            },
+            complete: function() {
+                // Este bloque se ejecuta SIEMPRE (con éxito o con error)
+                $('#crearUsuarioModal').modal('hide'); // Cierra el modal
+                $('#formUsuarioDashboard')[0].reset(); // Limpia el formulario
             }
         });
     });
