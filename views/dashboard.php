@@ -121,6 +121,12 @@
                 </li>
             </ul>
             <hr>
+            <!-- Botón para abrir el modal -->
+<div class="p-3">
+  <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
+    Crear Usuario
+  </button>
+</div>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -169,5 +175,72 @@
 
     </main>
 
+    <!-- Modal Crear Usuario -->
+<div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearUsuarioModalLabel">Nuevo Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <form id="formUsuarioDashboard">
+        <div class="modal-body">
+          <div class="row g-3">
+            
+            <!-- Nombre completo -->
+            <div class="col-md-6">
+              <label for="nombre_completo" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" required>
+            </div>
+
+            <!-- Correo -->
+            <div class="col-md-6">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <!-- Estado -->
+            <div class="col-md-6">
+              <label for="estado" class="form-label">Estado</label>
+              <select class="form-select" id="estado" name="estado" required>
+                <option value="">Seleccione...</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="col-md-6">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <!-- Rol -->
+            <div class="col-md-6">
+              <label for="rol" class="form-label">Rol</label>
+              <select class="form-select" id="rol" name="rol" required>
+                <option value="">Seleccione...</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Docente">Docente</option>
+                <option value="Estudiante">Estudiante</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/modal.js"></script>
 </body>
 </html>
