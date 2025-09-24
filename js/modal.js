@@ -29,11 +29,11 @@ $(document).ready(function () {
                     alert('Error: ' + r.message);
                 }
             },
-            error: function (xhr, status, error) {
+/*             error: function (xhr, status, error) {
                 // ❗ Error de red o del servidor
                 alert('Ocurrió un error. Revisa los datos e inténtalo de nuevo.');
                 console.error("Error AJAX:", xhr.responseText);
-            },
+            }, */
             complete: function() {
                 // Este bloque se ejecuta SIEMPRE (con éxito o con error)
                 $('#crearUsuarioModal').modal('hide'); // Cierra el modal
