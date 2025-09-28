@@ -63,6 +63,16 @@
       <a-box class="clickable" position="40 0.5 20" depth="1" height="1" width="1" color="#996633"></a-box>
       <a-box class="clickable" position="40 0.5 40" depth="1" height="1" width="1" color="#996633"></a-box>
      
+      <!-- Enemigo -->
+      <a-plane
+          id="enemy"
+          position="10 1.5 -15"
+          homing-enemy="speed: 1.5;"
+          width="2" height="2"
+          color="red"
+          billboard>
+      </a-plane>
+
       <!-- Cámara con crosshair -->
       <a-entity id="player"
                 camera 
@@ -70,13 +80,17 @@
                 wasd-controls
                 look-controls="pointerLockEnabled: true"
                 wall-collider
-                raycaster="objects: .clickable"
-                cursor="fuse: false; rayOrigin: entity">
+                player-health="healthTextEl: #healthText">
 
-        <!-- Crosshair -->
-        <a-entity position="0 0 -1" 
-                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
-                  material="color: white; shader: flat">
+        <!-- UI de la vida, fija a la cámara -->
+        <a-entity id="healthText" 
+                  text="value: Vida: 100; color: white; align: center; width: 2"
+                  position="0 -0.5 -1.5"></a-entity>
+
+        <!-- Crosshair (mira) -->
+        <a-entity cursor="fuse: false; rayOrigin: mouse"
+                  raycaster="objects: .clickable"
+                  position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: white; shader: flat">
         </a-entity>
       </a-entity>
     </a-scene>
@@ -92,5 +106,8 @@
     </div>
     
     <script src="../js/mapa.js"></script>
+    <script src="../js/enemy-ai.js"></script>
+    <script src="../js/player-health.js"></script>
+    <script src="../js/billboard.js"></script>
   </body>
 </html>
