@@ -45,7 +45,10 @@ class ModalController {
             $result = $this->userService->createUser($username, $email, $status, $password, $role, $documento);
             $this->sendResponse($result);
         } catch (Exception $e) {
-            $this->sendResponse(['status' => 'error', 'message' => $e->getMessage()], 500);
+            // Cambiamos el código de respuesta a 200 para que el callback 'success' de AJAX
+            // pueda procesar el mensaje de error de validación.
+            // Los errores de validación (como "email ya existe") no son errores del servidor.
+            $this->sendResponse(['status' => 'error', 'message' => $e->getMessage()], 200);
         }
     }
 
