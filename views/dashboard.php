@@ -1,3 +1,8 @@
+<?php             
+if(session_status() === PHP_SESSION_NONE){
+session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
 
@@ -122,15 +127,19 @@
             </ul>
             <hr>
             <!-- Botón para abrir el modal -->
-<div class="p-3">
+             <?php
+if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador'){
+echo    '<div class="p-3">
   <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
     Crear Usuario
   </button>
-</div>
+</div>';
+}
+?>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
+                    <strong><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Usuario'; ?></strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                     <li><a class="dropdown-item" href="#">Settings</a></li>

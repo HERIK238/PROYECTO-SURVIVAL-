@@ -27,6 +27,7 @@ class AuthService {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['rol'] = $user['rol'];
 
         return [
             'status' => 'success',
