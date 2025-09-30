@@ -1,6 +1,5 @@
 # 🚀 PROYECTO-SURVIVAL-
 
-<<<<<<< HEAD
 Este es un proyecto de aplicación web con funcionalidades de Realidad Aumentada (AR) para gestionar usuarios, tendencias y estadísticas, con un componente de juego inmersivo.
 
 ## 🧩 Tecnologías Utilizadas
@@ -87,4 +86,3 @@ Para información más detallada sobre la API, los componentes de frontend y la 
 └── nginx.conf                 # Archivo de configuración de Nginx
 ```
 =======
->>>>>>> 38cb3bbbeb2efe674b27fd1299c7d7fe7befd4a0
