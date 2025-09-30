@@ -8,6 +8,8 @@
     
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- A-Frame Extras -->
+     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
     
     <!-- Custom Wall Collider -->
     <script src="../js/wall-collider.js"></script>
@@ -17,7 +19,13 @@
   </head>
   <body>
 
-    <a-scene>
+    <a-scene setup-lighting shadow="type: pcfsoft">
+
+    <a-assets>
+    <!-- Precarga el modelo GLB -->
+    <a-asset-item id="enemyModel" src="../assets/Predator-Xenomorph_2-a-glb/Predator-Xenomorph-3a.glb"></a-asset-item>
+    </a-assets>
+
       <!-- Piso -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png"></a-plane>
 
@@ -64,14 +72,14 @@
       <a-box class="clickable" position="40 0.5 40" depth="1" height="1" width="1" color="#996633"></a-box>
      
       <!-- Enemigo -->
-      <a-plane
-          id="enemy"
-          position="10 1.5 -15"
-          homing-enemy="speed: 1.5;"
-          width="2" height="2"
-          color="red"
-          billboard>
-      </a-plane>
+  <a-entity id="enemy"
+            gltf-model="#enemyModel"
+            position="10 0 -15"
+            scale="1 1 1"
+            homing-enemy="speed: 1.5;"
+            fix-materials
+            billboard>
+  </a-entity>
 
       <!-- Cámara con crosshair -->
       <a-entity id="player"
@@ -109,5 +117,7 @@
     <script src="../js/enemy-ai.js"></script>
     <script src="../js/player-health.js"></script>
     <script src="../js/billboard.js"></script>
+    <script src="../js/fix-materials.js"></script>
+    <script src="../js/lighting.js"></script>
   </body>
 </html>
