@@ -1,4 +1,4 @@
-# 🚀 HomeLab AR - Quick Reference Guide
+# 🚀 PROYECTO-SURVIVAL - Guía de Referencia Rápida
 
 ## 📋 Essential Commands & Patterns
 
@@ -24,16 +24,16 @@ RegisterUser({
 ### 🎯 AR Operations
 ```javascript
 // Deploy item
-deployItem('service', {x: 0, y: 1, z: 0});
+deployItem('services', {x: 0, y: 1, z: 0});
 
 // Get AR system
-const homelabSystem = document.querySelector('[scene]').systems.homelab;
+const survivalSystem = document.querySelector('[scene]').systems.survival;
 
 // Detect surfaces
-homelabSystem.detectSurfaces();
+survivalSystem.simulateSurfaceDetection();
 
 // Clear items
-homelabSystem.clearDeployedItems();
+survivalSystem.clearLaboratory();
 ```
 
 ### 🛠️ Utility Functions
@@ -100,18 +100,18 @@ document.addEventListener('gaze-activate', (event) => {
 
 ### Performance Tuning
 ```javascript
-// Adjust limits
-HomeLabConfig.performance.maxDeployedItems = 15;
-HomeLabConfig.performance.maxSurfaces = 3;
-HomeLabConfig.performance.shadowQuality = 'low';
+// Ajustar configuraciones de rendimiento
+SurvivalConfig.performance.maxDeployedItems = 15;
+SurvivalConfig.performance.maxSurfaces = 3;
+SurvivalConfig.performance.shadowQuality = 'low';
 
 // AR settings
-HomeLabConfig.ar.surfaceDetectionTimeout = 15000;
-HomeLabConfig.ar.webxr.enableHitTest = false;
+SurvivalConfig.ar.surfaceDetectionTimeout = 15000;
+SurvivalConfig.ar.webxr.enableHitTest = false;
 
 // UI customization
-HomeLabConfig.ui.colors.primary = '#ff6b6b';
-HomeLabConfig.ui.animationDuration.menu = 500;
+SurvivalConfig.ui.colors.primary = '#ff6b6b';
+SurvivalConfig.ui.animationDuration.menu = 500;
 ```
 
 ### Default Values

@@ -10,7 +10,7 @@ let menuIndicatorTimeout;
 
 // Inicialización del sistema cuando se carga la página
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🚀 HomeLab AR - Sistema inicializado');
+    console.log('🚀 Survival AR - Sistema inicializado');
 
     // Configurar filtros de consola para reducir ruido
     setupConsoleFilters();
@@ -94,63 +94,34 @@ function setupConsoleFilters() {
 
 // Configurar event listeners para botones
 function setupEventListeners() {
-    // Event listener para el botón de despliegue
-    const deployBtn = document.getElementById('deploy-btn');
-    if (deployBtn) {
-        deployBtn.addEventListener('click', (event) => {
-            deployItem(event);
+    const listeners = {
+        'deploy-btn': deployItem,
+        'detect-btn': () => { AudioManager.playSound('interface'); detectSurface(); },
+        'clear-lab-btn': () => { AudioManager.playSound('delete'); clearLab(); },
+        'debug-btn': checkSystemStatus,
+        'reset-btn': () => { AudioManager.playSound('reset'); resetSystemState(); },
+        'menu-3d-btn': toggleFloatingMenu,
+        'menu-toggle': toggleMenu
+    };
+
+    for (const id in listeners) {
+        const element = document.getElementById(id);
+        if (element) {
+            // Remover onclick para evitar duplicados
+            if (element.hasAttribute('onclick')) {
+                element.removeAttribute('onclick');
+            }
+            element.addEventListener('click', listeners[id]);
+        }
+    }
+
+    // Listeners para categorías
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const category = event.currentTarget.id.replace('cat-', '');
+            selectCategory(category);
         });
-    }
-    
-    // Event listener para el botón de detectar superficie
-    const detectBtn = document.getElementById('detect-btn');
-    if (detectBtn) {
-        detectBtn.addEventListener('click', () => {
-            AudioManager.playSound('interface');
-            detectSurface();
-        });
-    }
-    
-    // Event listener para el botón de limpiar lab
-    const clearLabBtn = document.querySelector('button[onclick="clearLab()"]');
-    if (clearLabBtn) {
-        clearLabBtn.removeAttribute('onclick');
-        clearLabBtn.addEventListener('click', () => {
-            AudioManager.playSound('delete');
-            clearLab();
-        });
-    }
-    
-    // Event listener para el botón de debug
-    const debugBtn = document.querySelector('button[onclick="checkSystemStatus()"]');
-    if (debugBtn) {
-        debugBtn.removeAttribute('onclick');
-        debugBtn.addEventListener('click', checkSystemStatus);
-    }
-    
-    // Event listener para el botón de reset
-    const resetBtn = document.querySelector('button[onclick="resetSystemState()"]');
-    if (resetBtn) {
-        resetBtn.removeAttribute('onclick');
-        resetBtn.addEventListener('click', () => {
-            AudioManager.playSound('reset');
-            resetSystemState();
-        });
-    }
-    
-    // Event listener para el botón de menú 3D
-    const menu3dBtn = document.querySelector('button[onclick="toggleFloatingMenu()"]');
-    if (menu3dBtn) {
-        menu3dBtn.removeAttribute('onclick');
-        menu3dBtn.addEventListener('click', toggleFloatingMenu);
-    }
-    
-    // Event listener para el botón de menú toggle
-    const menuToggleBtn = document.querySelector('button[onclick="toggleMenu()"]');
-    if (menuToggleBtn) {
-        menuToggleBtn.removeAttribute('onclick');
-        menuToggleBtn.addEventListener('click', toggleMenu);
-    }
+    });
     
     console.log('🎯 Event listeners configurados');
 }
@@ -184,7 +155,7 @@ function startAR() {
 
     // Actualizar estado
     document.getElementById('surface-status').innerHTML =
-        '📡 <span style="color: #00ff88;">HomeLab AR activado</span> - Busca una superficie plana';
+        '📡 <span style="color: #00ff88;">Survival AR activado</span> - Busca una superficie plana';
 
     // Mostrar indicador de menú brevemente
     showMenuIndicator();
@@ -198,7 +169,7 @@ function startAR() {
         console.log('🔄 Variables globales sincronizadas al iniciar AR');
     }, 1000);
 
-    alertify.success('🚀 HomeLab AR inicializado', 2);
+    alertify.success('🚀 Survival AR inicializado', 2);
 }
 
 // Alternar visibilidad del menú
@@ -338,7 +309,7 @@ async function detectSurface() {
         }
 
         // Ejecutar detección
-        const system = document.querySelector('a-scene').systems['homelab'];
+        const system = document.querySelector('a-scene').systems['survival'];
         const detected = await system.simulateSurfaceDetection();
 
         if (detected) {
@@ -402,7 +373,7 @@ function clearLab() {
         if (result.isConfirmed) {
             try {
                 // Obtener sistema AR y limpiar
-                const system = document.querySelector('a-scene').systems['homelab'];
+                const system = document.querySelector('a-scene').systems['survival'];
                 system.clearLaboratory();
 
                 // Actualizar estado global
@@ -475,7 +446,7 @@ function initializePagesList() {
 // Seleccionar categoría de elementos
 function selectCategory(category) {
     // Verificar categoría válida
-    if (!homelabItems[category]) {
+    if (typeof homelabItems === 'undefined' || !homelabItems[category]) {
         console.warn(`⚠️ Categoría no válida: ${category}`);
         return;
     }
@@ -603,8 +574,8 @@ function resetSystemState() {
 // Función para sincronizar variables globales con el sistema AR
 function syncGlobalVariables() {
     const scene = document.querySelector('a-scene');
-    if (scene && scene.systems['homelab']) {
-        const system = scene.systems['homelab'];
+    if (scene && scene.systems['survival']) {
+        const system = scene.systems['survival'];
         
         // Sincronizar variables de superficie
         if (system.detectedSurfaces && system.detectedSurfaces.length > 0) {
@@ -629,7 +600,7 @@ function syncGlobalVariables() {
 
 // Función para verificar el estado actual del sistema
 function checkSystemStatus() {
-    console.log('🔍 Estado del sistema HomeLab AR:', {
+    console.log('🔍 Estado del sistema Survival AR (frontend):', {
         surfaceDetected: surfaceDetected,
         currentSurface: currentSurface ? 'existe' : 'no existe',
         surfacesCount: surfaces.length,
@@ -640,8 +611,8 @@ function checkSystemStatus() {
     
     // Verificar variables globales del sistema AR
     const scene = document.querySelector('a-scene');
-    if (scene && scene.systems['homelab']) {
-        const system = scene.systems['homelab'];
+    if (scene && scene.systems['survival']) {
+        const system = scene.systems['survival'];
         console.log('🔍 Estado del sistema AR:', {
             detectedSurfaces: system.detectedSurfaces.length,
             deployedItems: system.deployedItems.length,
@@ -672,8 +643,8 @@ function deployItem(event = null) {
 
     try {
         AudioManager.playSound('object');
-        // Obtener sistema AR
-        const system = document.querySelector('a-scene').systems['homelab'];
+        // Obtener sistema AR de Survival
+        const system = document.querySelector('a-scene').systems['survival'];
         
         // Para páginas, usar página seleccionada
         if (currentCategory === 'pages') {
@@ -741,13 +712,13 @@ function deployItem(event = null) {
 
 // Manejo de errores globales
 window.addEventListener('error', (event) => {
-    console.error('❌ Error global de HomeLab AR:', event.error);
+    console.error('❌ Error global de Survival AR:', event.error);
 });
 
 // Manejo de promesas rechazadas
 window.addEventListener('unhandledrejection', (event) => {
-    console.error('❌ Promesa rechazada en HomeLab AR:', event.reason);
+    console.error('❌ Promesa rechazada en Survival AR:', event.reason);
 });
 
 // Log de finalización de carga
-console.log('✅ HomeLab AR - Todos los scripts cargados correctamente');
+console.log('✅ Survival AR - Todos los scripts cargados correctamente');

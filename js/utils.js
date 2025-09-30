@@ -166,7 +166,7 @@ class Utils {
 
     // Limpiar elementos desplegados
     static clearDeployedItems() {
-        const container = document.getElementById('homelab-container');
+        const container = document.getElementById('survival-container');
         if (container) {
             while (container.firstChild) {
                 container.removeChild(container.firstChild);

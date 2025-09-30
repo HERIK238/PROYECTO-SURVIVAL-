@@ -1,4 +1,4 @@
-# 🎮 HomeLab AR - Component Documentation
+# 🎮 PROYECTO-SURVIVAL - Documentación de Componentes
 
 ## 📋 Table of Contents
 
@@ -8,7 +8,6 @@
 4. [Event System](#event-system)
 5. [Performance Considerations](#performance-considerations)
 
----
 
 ## 🎮 A-Frame Components
 
@@ -338,7 +337,7 @@ $.get("../api/check_session.php", function (resp) {
 
 **System Registration:**
 ```javascript
-AFRAME.registerSystem('homelab', {
+AFRAME.registerSystem('survival', {
     init: function () {
         this.detectedSurfaces = [];
         this.deployedItems = [];
@@ -557,12 +556,12 @@ function eliminarUsuario() {
 
 ### Configuration (`homelab-config.js`)
 
-**Performance Settings:**
+**Configuración de Rendimiento (`SurvivalConfig`):**
 ```javascript
 performance: {
     enableFPSMonitoring: true,
     fpsLogInterval: 100,
-    maxParticleCount: 50,
+    maxParticleCount: 50, // Límite de partículas para efectos
     maxLights: 8,
     shadowQuality: 'medium',
     maxDeployedItems: 20,

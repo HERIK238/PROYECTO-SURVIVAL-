@@ -8,7 +8,7 @@ set -e
 echo "🔄 Iniciando renovación de certificados SSL..."
 
 # Variables
-DOMAIN="roepard-login.com"
+DOMAIN="survival-project.com"
 LOG_FILE="/var/log/ssl-renewal.log"
 
 # Función para logging
