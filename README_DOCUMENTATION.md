@@ -1,23 +1,22 @@
-# 📚 HomeLab AR - Complete Documentation Index
+# 📚 PROYECTO-SURVIVAL - Índice de Documentación
 
 ## 🎯 Project Overview
 
-**HomeLab AR** is an augmented reality application that allows users to deploy and manage virtual homelab services in real-world environments. Built with modern web technologies, it provides an immersive AR experience for IT professionals and homelab enthusiasts.
+**PROYECTO-SURVIVAL-** es una aplicación web con funcionalidades de Realidad Aumentada (AR) que incluye gestión de usuarios, un dashboard de estadísticas y un mini-juego inmersivo.
 
 ### 🌟 Key Features
-- **Augmented Reality**: WebXR-powered AR experiences
-- **User Authentication**: Secure login and registration system
-- **Surface Detection**: Automatic detection of real-world surfaces
-- **Item Deployment**: Virtual homelab service deployment
-- **Performance Monitoring**: Real-time AR performance tracking
-- **Responsive UI**: Modern, mobile-friendly interface
+- **Autenticación de Usuarios**: Sistema seguro de login y registro.
+- **Gestión de Usuarios**: Panel de administración para usuarios.
+- **Juego AR "Survival"**: Mini-juego inmersivo construido con A-Frame.
+- **Dashboard**: Panel principal con estadísticas y actividad.
+- **UI Responsiva**: Interfaz moderna y adaptable a móviles.
 
 ### 🛠️ Technology Stack
-- **Backend**: PHP 8.4.7, MySQL/MariaDB 10.6+
-- **Frontend**: JavaScript (ES6+), A-Frame, WebXR
-- **AR Framework**: A-Frame with custom components
-- **UI**: Bootstrap, jQuery, custom CSS
-- **Deployment**: Docker, Nginx, PHP-FPM
+- **Backend**: PHP 8.4, MySQL/MariaDB 10.6+
+- **Frontend**: JavaScript (ES6+), A-Frame, jQuery, Bootstrap
+- **Framework AR**: A-Frame
+- **UI**: Bootstrap, jQuery, CSS personalizado
+- **Despliegue**: XAMPP, Apache/Nginx
 
 ---
 
@@ -25,12 +24,11 @@
 
 ### 1. [API Documentation](API_DOCUMENTATION.md) 📋
 **Complete API reference for developers**
-
+ 
 **What's included:**
-- Backend PHP APIs (Authentication, User Management)
-- Frontend JavaScript APIs (Core System, AR System, Utils)
-- A-Frame Components (gaze-activator, floating-menu, surface-detector)
-- Configuration options and settings
+- APIs de Backend PHP (Autenticación, Gestión de Usuarios).
+- APIs de Frontend JavaScript (Sistema de Autenticación, Dashboard).
+- Componentes de A-Frame para el juego "Survival".
 - Usage examples and code snippets
 - Error handling patterns
 - Development setup instructions
@@ -41,12 +39,11 @@
 
 ### 2. [Component Documentation](COMPONENT_DOCUMENTATION.md) 🎮
 **Detailed component and module documentation**
-
+ 
 **What's included:**
-- A-Frame component schemas and properties
-- JavaScript module lifecycle and methods
-- Event system and custom events
-- Performance considerations and optimization
+- Esquemas y propiedades de componentes de A-Frame.
+- Ciclo de vida y métodos de módulos JavaScript.
+- Sistema de eventos y eventos personalizados.
 - Testing strategies and examples
 - Component interaction patterns
 
@@ -56,7 +53,7 @@
 
 ### 3. [Quick Reference Guide](QUICK_REFERENCE.md) 🚀
 **Fast lookup for common operations**
-
+ 
 **What's included:**
 - Essential commands and patterns
 - Common code snippets
@@ -70,7 +67,6 @@
 ---
 
 ## 🗂️ Documentation Structure
-
 ```
 📚 Documentation/
 ├── 📋 API_DOCUMENTATION.md      # Complete API reference
@@ -133,8 +129,8 @@
 ### 1. **Setup Environment**
 ```bash
 # Clone repository
-git clone <repository-url>
-cd homelab-ar
+git clone <url-del-repositorio>
+cd PROYECTO-SURVIVAL-
 
 # Install dependencies
 # Configure database
@@ -155,7 +151,7 @@ if (navigator.xr) {
 
 // Initialize system
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('HomeLab AR ready');
+    console.log('Survival AR listo');
 });
 ```
 
@@ -297,7 +293,7 @@ document.addEventListener('surface-detected', function(event) {
 
 ## 📄 **License & Attribution**
 
-This documentation is part of the HomeLab AR project and follows the same license terms. All code examples are provided as-is for educational purposes.
+This documentation is part of the PROYECTO-SURVIVAL- project and follows the same license terms. All code examples are provided as-is for educational purposes.
 
 ---
 
@@ -310,4 +306,4 @@ This documentation is part of the HomeLab AR project and follows the same licens
 
 ---
 
-*This documentation index provides a comprehensive overview of all available documentation for the HomeLab AR project. Use the links above to navigate to specific sections based on your needs.*
+*This documentation index provides a comprehensive overview of all available documentation for the PROYECTO-SURVIVAL- project. Use the links above to navigate to specific sections based on your needs.*

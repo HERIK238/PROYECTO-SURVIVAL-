@@ -1,4 +1,4 @@
-# 🚀 HomeLab AR - API Documentation
+# 🚀 PROYECTO-SURVIVAL - Documentación de API
 
 ## 📋 Table of Contents
 
@@ -6,30 +6,29 @@
 2. [Backend APIs](#backend-apis)
 3. [Frontend JavaScript APIs](#frontend-javascript-apis)
 4. [A-Frame Components](#a-frame-components)
-5. [Configuration](#configuration)
-6. [Usage Examples](#usage-examples)
-7. [Error Handling](#error-handling)
+5. [Ejemplos de Uso](#ejemplos-de-uso)
+6. [Manejo de Errores](#manejo-de-errores)
 
 ---
 
 ## 🌟 Overview
 
-HomeLab AR is an augmented reality application built with PHP backend and JavaScript frontend, featuring WebXR support for immersive AR experiences. The system allows users to deploy virtual homelab services in real-world environments.
+**PROYECTO-SURVIVAL-** es una aplicación web con funcionalidades de Realidad Aumentada (AR). El sistema permite la autenticación y gestión de usuarios, y presenta un mini-juego inmersivo "Survival".
 
 **Key Technologies:**
-- **Backend**: PHP 8.4.7, MySQL/MariaDB
-- **Frontend**: JavaScript (ES6+), A-Frame, WebXR
-- **AR Framework**: A-Frame with custom components
-- **Authentication**: Session-based PHP authentication
+- **Backend**: PHP 8.4, MySQL/MariaDB
+- **Frontend**: JavaScript (ES6+), A-Frame, jQuery, Bootstrap
+- **Framework AR**: A-Frame
+- **Autenticación**: Autenticación PHP basada en sesiones.
 
 ---
 
 ## 🔧 Backend APIs
 
-### Authentication API
+### Autenticación de Usuarios
 
-#### `POST /api/auth_user.php`
-Authenticates a user with username/email/phone and password.
+#### `POST /PROYECTO-SURVIVAL-/api/auth_user.php`
+Autentica a un usuario con su nombre de usuario y contraseña.
 
 **Request Body:**
 ```json
@@ -197,8 +196,8 @@ RegisterUser({
 
 ### AR System (`ar-system.js`)
 
-#### `AFRAME.registerSystem('homelab')`
-Main AR system for HomeLab functionality.
+#### `AFRAME.registerSystem('survival')`
+Sistema principal de AR para la funcionalidad "Survival".
 
 **Features:**
 - Surface detection and management
@@ -208,8 +207,8 @@ Main AR system for HomeLab functionality.
 
 **Usage:**
 ```javascript
-// Automatically registered when A-Frame loads
-const homelabSystem = document.querySelector('[scene]').systems.homelab;
+// Registrado automáticamente cuando A-Frame carga
+const survivalSystem = document.querySelector('[scene]').systems.survival;
 ```
 
 #### Surface Detection Methods

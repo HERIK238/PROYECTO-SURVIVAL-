@@ -1,6 +1,6 @@
-# 🚀 Configuración de Nginx para Roepard Login
+# 🚀 Configuración de Nginx para roepard-login
 
-Este proyecto incluye una configuración completa de Nginx con SSL para tu proyecto `roepard-login` ubicado en `/var/www/roepard-login/*`.
+Este proyecto incluye una configuración completa de Nginx con SSL para tu proyecto `roepard-login` ubicado en `/var/www/roepard-login`.
 
 ## 📋 Archivos Incluidos
 
@@ -35,7 +35,7 @@ Este proyecto incluye una configuración completa de Nginx con SSL para tu proye
 ### Opción 1: Instalación Automática (Recomendada)
 
 ```bash
-# 1. Descargar el script
+# 1. (Opcional) Descargar el script de instalación si está en un servidor remoto.
 wget https://tu-servidor.com/install-nginx-roepard-login.sh
 
 # 2. Dar permisos de ejecución

@@ -106,12 +106,12 @@ AFRAME.registerComponent('floating-menu', {
 });
 
 // Componente para elementos interactivos del HomeLab
-AFRAME.registerComponent('homelab-item', {
+AFRAME.registerComponent('survival-item', {
     init: function () {
         const el = this.el;
         
-        // Agregar clase para estilos CSS
-        el.classList.add('homelab-item');
+        // Agregar clase para estilos CSS y Three.js
+        el.classList.add('survival-item');
         
         // Configurar interacciones básicas
         el.setAttribute('cursor', 'fuse: true; fuseTimeout: 2000');
@@ -125,7 +125,7 @@ AFRAME.registerComponent('homelab-item', {
             el.setAttribute('scale', '1 1 1');
         });
         
-        console.log('🏠 Elemento HomeLab inicializado');
+        console.log('🏕️ Elemento Survival inicializado');
     }
 });
 

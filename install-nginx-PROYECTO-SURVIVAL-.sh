@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Script de instalación de Nginx para roepard-login con SSL
-# Ejecutar como root: sudo bash install-nginx-roepard-login.sh
+# Script de instalación de Nginx para PROYECTO-SURVIVAL- con SSL
+# Ejecutar como root: sudo bash install-nginx-PROYECTO-SURVIVAL-.sh
 
 set -e
 
-echo "🚀 Iniciando instalación de Nginx para roepard-login..."
+echo "🚀 Iniciando instalación de Nginx para PROYECTO-SURVIVAL-..."
 
 # Variables
-DOMAIN="roepard-login.com"
-SITE_NAME="roepard-login"
-DOCUMENT_ROOT="/var/www/roepard-login"
+DOMAIN="survival-project.com"
+SITE_NAME="survival"
+DOCUMENT_ROOT="/var/www/PROYECTO-SURVIVAL-"
 NGINX_SITES_AVAILABLE="/etc/nginx/sites-available"
 NGINX_SITES_ENABLED="/etc/nginx/sites-enabled"
 
@@ -61,7 +61,7 @@ cat > $NGINX_SITES_AVAILABLE/$SITE_NAME << 'EOF'
 server {
     listen 80;
     listen [::]:80;
-    server_name roepard-login.com www.roepard-login.com;
+    server_name survival-project.com www.survival-project.com;
     
     # Redirect HTTP to HTTPS
     return 301 https://$server_name$request_uri;
@@ -70,11 +70,11 @@ server {
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name roepard-login.com www.roepard-login.com;
+    server_name survival-project.com www.survival-project.com;
     
     # SSL Configuration
-    ssl_certificate /etc/letsencrypt/live/roepard-login.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/roepard-login.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/survival-project.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/survival-project.com/privkey.pem;
     
     # SSL Security Settings
     ssl_protocols TLSv1.2 TLSv1.3;
@@ -90,16 +90,16 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     
     # Document Root
-    root /var/www/roepard-login;
+    root /var/www/PROYECTO-SURVIVAL-;
     index index.html index.htm index.php;
     
     # Logs
-    access_log /var/log/nginx/roepard-login.access.log;
-    error_log /var/log/nginx/roepard-login.error.log;
+    access_log /var/log/nginx/survival.access.log;
+    error_log /var/log/nginx/survival.error.log;
     
     # Main Location Block
     location / {
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/ /index.php?$query_string;
         
         # Security: Deny access to hidden files
         location ~ /\. {
@@ -172,7 +172,7 @@ cat > $DOCUMENT_ROOT/index.html << 'EOF'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roepard Login - Configuración Exitosa</title>
+    <title>PROYECTO-SURVIVAL- - Configuración Exitosa</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -230,21 +230,21 @@ cat > $DOCUMENT_ROOT/index.html << 'EOF'
 </head>
 <body>
     <div class="container">
-        <h1>🎉 ¡Configuración Exitosa!</h1>
-        <p>Tu proyecto roepard-login está funcionando correctamente con Nginx</p>
+        <h1>🚀 ¡Configuración Exitosa!</h1>
+        <p>Tu proyecto PROYECTO-SURVIVAL- está funcionando correctamente con Nginx</p>
         
         <div class="status">
             ✅ Nginx configurado<br>
             ✅ Sitio habilitado<br>
-            ✅ Document root: /var/www/roepard-login
+            ✅ Document root: /var/www/PROYECTO-SURVIVAL-
         </div>
         
         <div class="next-steps">
             <h3>📋 Próximos pasos:</h3>
             <ul>
                 <li>Configurar tu dominio DNS para apuntar a este servidor</li>
-                <li>Ejecutar: <code>sudo certbot --nginx -d roepard-login.com -d www.roepard-login.com</code></li>
-                <li>Subir tu código al directorio /var/www/roepard-login</li>
+                <li>Ejecutar: <code>sudo certbot --nginx -d survival-project.com -d www.survival-project.com</code></li>
+                <li>Subir tu código al directorio /var/www/PROYECTO-SURVIVAL-</li>
                 <li>Reiniciar Nginx: <code>sudo systemctl restart nginx</code></li>
             </ul>
         </div>
@@ -292,13 +292,13 @@ echo "🔗 Sitio habilitado en: $NGINX_SITES_ENABLED/$SITE_NAME"
 echo ""
 echo "📋 PRÓXIMOS PASOS:"
 echo "1. Configura tu dominio DNS para apuntar a este servidor"
-echo "2. Ejecuta: sudo certbot --nginx -d roepard-login.com -d www.roepard-login.com"
+echo "2. Ejecuta: sudo certbot --nginx -d survival-project.com -d www.survival-project.com"
 echo "3. Sube tu código al directorio $DOCUMENT_ROOT"
 echo "4. Reinicia Nginx: sudo systemctl restart nginx"
 echo ""
 echo "🔍 VERIFICAR ESTADO:"
 echo "- Nginx: sudo systemctl status nginx"
 echo "- Sitio: curl -I http://localhost"
-echo "- Logs: sudo tail -f /var/log/nginx/roepard-login.access.log"
+echo "- Logs: sudo tail -f /var/log/nginx/survival.access.log"
 echo ""
-echo "✅ ¡Tu proyecto roepard-login está listo!"
+echo "✅ ¡Tu proyecto PROYECTO-SURVIVAL- está listo!"
