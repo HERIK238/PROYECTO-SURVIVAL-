@@ -49,7 +49,7 @@ gameOver: function() {
             window.location.reload(); 
         } else {
             // Opcional: Redirigir al menú principal si no quiere reiniciar
-            // window.location.href = '../views/dashboard.php';
+            window.location.href = '../views/dashboard.php';
         }
     }, 100); 
   },
