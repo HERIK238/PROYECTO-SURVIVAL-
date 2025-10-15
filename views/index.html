@@ -23,7 +23,7 @@
 
     <a-assets>
     <!-- Precarga el modelo GLB -->
-    <a-asset-item id="enemyModel" src="../assets/Predator-Xenomorph_2-a-glb/Predator-Xenomorph-3a.glb"></a-asset-item>
+    <a-asset-item id="enemyModel" src="../assets/modelos/kuntilanak_indonesian_ghost.glb"></a-asset-item>
     </a-assets>
 
       <!-- Piso -->
@@ -74,16 +74,17 @@
       <!-- Enemigo -->
   <a-entity id="enemy"
             gltf-model="#enemyModel"
-            position="10 0 -15"
-            scale="1 1 1"
+            position="10 -0 -15"
+            scale="50 50 100"
             homing-enemy="speed: 1.5;"
+            animation-mixer
             fix-materials
             billboard>
   </a-entity>
 
       <!-- Cámara con crosshair -->
       <a-entity id="player"
-                camera 
+                camera
                 position="0 1.6 5"
                 wasd-controls
                 look-controls="pointerLockEnabled: true"
@@ -119,5 +120,7 @@
     <script src="../js/billboard.js"></script>
     <script src="../js/fix-materials.js"></script>
     <script src="../js/lighting.js"></script>
+    <script src="../js/orthographic-camera.js"></script>
+
   </body>
 </html>
