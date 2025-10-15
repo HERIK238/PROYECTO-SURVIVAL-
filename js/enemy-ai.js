@@ -23,6 +23,10 @@ AFRAME.registerComponent('homing-enemy', {
     // 2. Obtener la posición del enemigo
     this.el.object3D.getWorldPosition(this.enemyPosition);
 
+    // Para que el enemigo se mueva solo en el plano horizontal (XZ),
+    // ignoramos la diferencia de altura (Y).
+    this.targetPosition.y = this.enemyPosition.y;
+
     // 3. Calcular la distancia
     const distance = this.enemyPosition.distanceTo(this.targetPosition);
 
