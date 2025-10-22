@@ -31,6 +31,9 @@ document.querySelector("#player").addEventListener("click", function (evt) {
     cajasAgarradas++;
     contadorEl.textContent = "Cajas: " + cajasAgarradas + " / " + totalCajas;
 
+    // Emitimos un evento en la escena para que otros componentes (como los enemigos) reaccionen
+    document.querySelector('a-scene').emit('object-grabbed');
+
     if (cajasAgarradas >= totalCajas) {
       clearInterval(intervalo);
       alert("¡Ganaste! 🎉 Has recogido todas las cajas");
