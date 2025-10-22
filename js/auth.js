@@ -30,10 +30,10 @@ $(document).ready(function() {
         event.preventDefault();
 
         // Obtener valores de login
-        var username = $.trim($('#username-login').val());
+        var email = $.trim($('#email-login').val()); // Cambiado de #username-login a #email-login
         var password = $.trim($('#password-login').val());
 
-        if (!username || !password) {
+        if (!email || !password) {
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -42,7 +42,7 @@ $(document).ready(function() {
         $.ajax({
             url: '/PROYECTO-SURVIVAL-/api/auth_user.php',
             method: 'POST',
-            data: { username: username, password: password },
+            data: { username: email, password: password }, // Enviamos el email bajo la clave 'username'
             dataType: 'json',
             success: function (resp) {
                 if (resp.status === "success") {
@@ -63,11 +63,10 @@ $(document).ready(function() {
         event.preventDefault();
 
         // Obtener valores de registro
-        var username = $.trim($('#username-signup').val());
         var email = $.trim($('#email-signup').val());
         var password = $.trim($('#password-signup').val());
 
-        if (!username || !email || !password) {
+        if (!email || !password) {
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -76,7 +75,7 @@ $(document).ready(function() {
         $.ajax({
             url: '/PROYECTO-SURVIVAL-/api/reg_user.php',
             method: 'POST',
-            data: { username: username, email: email, password: password },
+            data: { email: email, password: password },
             dataType: 'json',
             success: function (resp) {
                 if (resp.status === "success") {
