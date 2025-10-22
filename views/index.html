@@ -24,6 +24,7 @@
     <a-assets>
     <!-- Precarga el modelo GLB -->
     <a-asset-item id="enemyModel" src="../assets/modelos/kuntilanak_indonesian_ghost.glb"></a-asset-item>
+    <a-asset-item id="doorModel" src="../assets/modelos/garage_door.glb"></a-asset-item>
     </a-assets>
 
       <!-- Piso -->
@@ -81,6 +82,14 @@
             fix-materials>
   </a-entity>
 
+  <a-entity id="puerta"
+          gltf-model="#doorModel"
+          position="0 0 -10"
+          scale="2 2 2"
+          rotation="0 90 0"
+          puerta-control>
+</a-entity>
+
       <!-- Cámara con crosshair -->
       <a-entity id="player"
                 camera
@@ -120,6 +129,7 @@
     <script src="../js/fix-materials.js"></script>
     <script src="../js/lighting.js"></script>
     <script src="../js/orthographic-camera.js"></script>
+    <script src="../js/puerta.js"></script>
 
   </body>
 </html>
