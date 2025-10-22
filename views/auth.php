@@ -64,12 +64,12 @@
           <h2>Login</h2>
           <form id="form-login" method="post" >
             <div class="form-element form-stack">
-              <label for="username-login" class="form-label">Username</label>
-              <input id="username-login" type="text" name="username">
+              <label for="email-login" class="form-label">email</label>
+              <input id="email-login" type="email" name="email" require>
             </div>
             <div class="form-element form-stack">
               <label for="password-login" class="form-label">Password</label>
-              <input id="password-login" type="password" name="password">
+              <input id="password-login" type="password" name="password" require>
             </div>
             <div class="form-element form-submit">
               <button id="logIn" class="login" type="submit">Log In</button>
