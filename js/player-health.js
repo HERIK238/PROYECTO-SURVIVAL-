@@ -19,11 +19,17 @@ AFRAME.registerComponent('player-health', {
     this.data.health -= evt.detail.damage || 10;
     this.data.health = Math.max(0, this.data.health);
 
-    if (this.data.health === 0) { // <--- CAMBIO CLAVE: Usa '==='
-      console.log("¡Has sido derrotado!");
-      // Llama a la nueva función de derrota
-      this.gameOver(); // <--- LLAMADA A LA FUNCIÓN
-    }
+    if (this.data.health === 0) {
+  const overlay = document.getElementById('gameover-overlay');
+  overlay.classList.add('show');
+
+  const restartBtn = document.getElementById('restart-btn');
+  const cancelBtn = document.getElementById('cancel-btn');
+
+  restartBtn.onclick = () => location.reload();
+  cancelBtn.onclick = () => overlay.classList.remove('show');
+}
+
 
     this.updateHealthText();
     console.log("Vida restante: " + this.data.health);
