@@ -1,4 +1,3 @@
-
 AFRAME.registerComponent('puerta-control', {
   init: function () {
     const el = this.el;
@@ -18,10 +17,10 @@ AFRAME.registerComponent('puerta-control', {
       const action = mixer.clipAction(clip);
 
       // ⚙️ Configuración de la animación
-      action.setLoop(THREE.LoopOnce);        // Solo se ejecuta una vez
-      action.clampWhenFinished = true;       // Mantiene el último frame (la puerta abierta)
-      action.paused = true;                  // No inicia sola
-      action.enabled = true;                 // Asegura que no se reinicie
+      action.setLoop(THREE.LoopOnce);        // Solo una vez
+      action.clampWhenFinished = true;       // Mantiene el último frame
+      action.paused = true;                  // No inicia automáticamente
+      action.enabled = true;                 // Permite reproducirla
       action.timeScale = 1;                  // Velocidad normal
 
       this.mixer = mixer;
@@ -36,7 +35,7 @@ AFRAME.registerComponent('puerta-control', {
         }
       });
 
-      // 🔥 Evento automático (por las cajas)
+      // 🔥 Evento automático (todas las cajas recogidas)
       el.addEventListener("abrir-puerta", () => {
         if (!this.abierta && this.action) {
           console.log("🚪 Puerta abierta automáticamente (todas las cajas recogidas)");
@@ -52,11 +51,15 @@ AFRAME.registerComponent('puerta-control', {
     this.action.paused = false;
     this.action.play();
 
-    // 🔒 Forzamos que se quede en el último frame al terminar
-    this.action.onFinish = () => {
-      this.action.paused = true;
-      this.action.time = this.action.getClip().duration;
-    };
+    console.log("🚪 Animación de apertura iniciada...");
+
+    // 🕒 Pausar animación después de 3 segundos
+    setTimeout(() => {
+      if (this.action && this.abierta) {
+        this.action.paused = true;
+        console.log("⏸️ Puerta pausada después de 3 segundos.");
+      }
+    }, 3000);
   },
 
   tick: function (time, deltaTime) {

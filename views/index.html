@@ -11,6 +11,10 @@
     <!-- A-Frame Extras -->
      <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.6.0/dist/aframe-extras.min.js"></script>
     
+    <!-- SweetAlert2 para alertas personalizadas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
     <!-- Custom Wall Collider -->
     <script src="../js/wall-collider.js"></script>
 
@@ -30,39 +34,42 @@
       <!-- Piso -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png"></a-plane>
 
+      <a-plane position="0 8 0" rotation="90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png"></a-plane>
+
       <!-- Paredes -->
-      <a-box class="collidable" position="0 2 -50" depth="0.1" height="10" width="100" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
-      <a-box class="collidable" position="0 2 50" depth="0.1" height="10" width="100" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
-      <a-box class="collidable" position="50 2 0" depth="100" height="10" width="0.1" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
-      <a-box class="collidable" position="-50 2 0" depth="100" height="10" width="0.1" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
+      <a-box class="collidable" position="0 3 -50" depth="0.1" height="10" width="100" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
+      <a-box class="collidable" position="0 3 50" depth="0.1" height="10" width="100" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
+      <a-box class="collidable" position="50 3 30.5" depth="39" height="10" width="0.1" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
+      <a-box class="collidable" position="50 3 -23.5" depth="53" height="10" width="0.1" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
+      <a-box class="collidable" position="-50 3 0" depth="100" height="10" width="0.1" repeat="3" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box>
 
       <!--habitaciones-->
-      <a-box class="collidable" position="27.5 2 -1" depth="0.1" height="10" width="35" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
-      <a-box class="collidable" position="30 2 -35" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
-      <a-box class="collidable" position="10 2 -23" depth="44" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
-      <a-box class="collidable" position="30 2 -44" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
+      <a-box class="collidable" position="27.5 3 -1" depth="0.1" height="10" width="35" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
+      <a-box class="collidable" position="30 3 -35" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
+      <a-box class="collidable" position="10 3 -23" depth="44" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
+      <a-box class="collidable" position="30 3 -44" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 1 -->
       
-      <a-box class="collidable" position="30 2 16" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
-      <a-box class="collidable" position="30 2 30" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
-      <a-box class="collidable" position="10 2 42.5" depth="15" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
-      <a-box class="collidable" position="10 2 20.5" depth="9" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
+      <a-box class="collidable" position="30 3 16" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
+      <a-box class="collidable" position="30 3 30" depth="0.1" height="10" width="40" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
+      <a-box class="collidable" position="10 3 42.5" depth="15" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
+      <a-box class="collidable" position="10 3 20.5" depth="9" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 2 -->
       
-      <a-box class="collidable" position="-20 2 16" depth="0.1" height="10" width="20" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-35 2 28" depth="0.1" height="10" width="30" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-42.5 2 16" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-13 2 28" depth="0.1" height="10" width="6" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-26 2 22" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-10 2 29.5" depth="27" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-30 2 44" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
-      <a-box class="collidable" position="-30 2 30.7" depth="5.5" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-20 3 16" depth="0.1" height="10" width="20" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-35 3 28" depth="0.1" height="10" width="30" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-42.5 3 16" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-13 3 28" depth="0.1" height="10" width="6" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-26 3 22" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-10 3 29.5" depth="27" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-30 3 44" depth="12" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
+      <a-box class="collidable" position="-30 3 30.7" depth="5.5" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 3 -->
       
-      <a-box class="collidable" position="-17.5 2 -26" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-40 2 -20" depth="0.1" height="10" width="10" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-17.5 2 -1" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-25 2 -38" depth="24" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-35 2 -35" depth="30" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-10 2 -23" depth="44" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
-      <a-box class="collidable" position="-25 2 -11" depth="20" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-17.5 3 -26" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-40 3 -20" depth="0.1" height="10" width="10" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-17.5 3 -1" depth="0.1" height="10" width="15" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-25 3 -38" depth="24" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-35 3 -35" depth="30" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-10 3 -23" depth="44" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
+      <a-box class="collidable" position="-25 3 -11" depth="20" height="10" width="0.1" src="../metal/pared-vieja-con-el-fondo-del-yeso-pelado.jpg"></a-box><!-- 4 -->
     
       <!-- Objetos interactivos -->
       <a-box class="clickable" position="-22 0.5 -27" depth="1.5" height="1.5" width="1.5" color="#996633"></a-box>
@@ -84,9 +91,9 @@
 
   <a-entity id="puerta"
           gltf-model="#doorModel"
-          position="0 0 -10"
-          scale="2 2 2"
-          rotation="0 90 0"
+          position="49.5 2 7"
+          scale="2 3 2"
+          rotation="0 -90 0"
           puerta-control>
 </a-entity>
 
@@ -107,10 +114,34 @@
         <!-- Crosshair (mira) -->
         <a-entity cursor="fuse: false; rayOrigin: mouse"
                   raycaster="objects: .clickable"
+                  raycaster="objects: .clickable; far: 15;"
                   position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: white; shader: flat">
         </a-entity>
       </a-entity>
     </a-scene>
+
+    <!-- Efecto visual de "muerte" -->
+<div id="gameover-overlay" class="hidden">
+  <div id="gameover-box">
+    <h2>💀 ¡JUEGO TERMINADO! 💀</h2>
+    <p>Has sido derrotado.<br>¿Quieres reiniciar la partida?</p>
+    <div class="buttons">
+      <button id="restart-btn">Aceptar</button>
+      <button id="cancel-btn">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Alerta de tiempo agotado -->
+<div id="timeout-overlay">
+  <div class="timeout-box">
+    <h2>⏰ ¡Tiempo agotado!</h2>
+    <p>Se terminó el tiempo. ¿Quieres intentarlo de nuevo?</p>
+    <button id="retry-btn">Reintentar</button>
+  </div>
+</div>
+
+
 
     
     <div id="back-button-container">

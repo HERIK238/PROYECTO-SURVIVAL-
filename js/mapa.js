@@ -1,11 +1,12 @@
 let totalCajas = 6; 
 let cajasAgarradas = 0;
-let tiempoRestante = 300; // 5 minutos
+let tiempoRestante = 200; // 5 minutos
 let intervalo;
 
-// 🎯 Elementos del HUD
 const contadorEl = document.getElementById("contador");
 const tiempoEl = document.getElementById("tiempo");
+const timeoutOverlay = document.getElementById("timeout-overlay");
+const retryBtn = document.getElementById("retry-btn");
 
 // 🕒 Iniciar temporizador
 function iniciarTimer() {
@@ -15,11 +16,21 @@ function iniciarTimer() {
 
     if (tiempoRestante <= 0) {
       clearInterval(intervalo);
-      alert("⏰ ¡Tiempo agotado! Perdiste 😢");
-      location.reload(); // reinicia el juego
+      mostrarTimeoutOverlay(); // Muestra la alerta azul
     }
   }, 1000);
 }
+
+// 🧩 Mostrar alerta de tiempo agotado
+function mostrarTimeoutOverlay() {
+  timeoutOverlay.style.display = "flex"; // la muestra
+}
+
+// 🔄 Reintentar
+retryBtn.addEventListener("click", () => {
+  location.reload(); // reinicia el juego
+});
+
 
 // 🎮 Detectar clic en objetos con clase "clickable"
 document.querySelector("#player").addEventListener("click", function (evt) {
@@ -44,15 +55,14 @@ document.querySelector("#player").addEventListener("click", function (evt) {
   }
 });
 
-// 🚪 Función para abrir la puerta
+// 🚪 Función para abrir la puerta (sin alerta)
 function abrirPuerta() {
   const puertaEl = document.querySelector("#puerta");
 
   if (puertaEl) {
-    puertaEl.emit("abrir-puerta"); // 🔥 activa la animación del componente puerta-control
-    setTimeout(() => {
-      alert("🎉 ¡Has ganado! La puerta se ha abierto 🚪");
-    }, 500);
+    // Emitir evento para activar la animación del componente puerta-control
+    puertaEl.emit("abrir-puerta"); 
+    console.log("🚪 La puerta se ha abierto automáticamente.");
   } else {
     console.warn("⚠️ No se encontró la puerta en la escena");
   }
