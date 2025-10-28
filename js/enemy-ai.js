@@ -71,8 +71,8 @@ AFRAME.registerComponent('homing-enemy', {
 
   increaseDifficulty: function() {
     // Aumenta la velocidad y el daño en una pequeña cantidad
-    this.data.speed += 1.3; // Aumento de velocidad
-    this.data.damage += 5;   // Aumento de daño
+    this.data.speed += 1.5; // Aumento de velocidad
+    this.data.damage += 10;   // Aumento de daño
     console.log(`¡El enemigo se ha vuelto más fuerte! Nueva velocidad: ${this.data.speed.toFixed(2)}, Nuevo daño: ${this.data.damage}`);
   },
 

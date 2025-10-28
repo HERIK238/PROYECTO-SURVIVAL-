@@ -27,38 +27,24 @@ AFRAME.registerComponent('player-health', {
   const cancelBtn = document.getElementById('cancel-btn');
 
   restartBtn.onclick = () => location.reload();
-  cancelBtn.onclick = () => overlay.classList.remove('show');
-}
+  // Redirige al dashboard cuando se presiona "Cancelar".
+  cancelBtn.onclick = () => {
+    window.location.href = '../views/dashboard.php';
+  };
 
+    // Desactivar controles del jugador para que no se pueda mover
+    this.el.setAttribute('wasd-controls', 'enabled', false);
+    this.el.setAttribute('look-controls', 'enabled', false);
+
+    // Detener a los enemigos
+    document.querySelectorAll('[homing-enemy]').forEach(enemy => {
+        enemy.setAttribute('homing-enemy', 'speed', 0);
+    });
+}
 
     this.updateHealthText();
     console.log("Vida restante: " + this.data.health);
   },
-
-  // FUNCIÓN AGREGADA: Lógica para terminar el juego
-gameOver: function() {
-    // 1. Desactivar controles del jugador y detener enemigos
-    this.el.setAttribute('wasd-controls', 'enabled', false);
-    this.el.setAttribute('look-controls', 'enabled', false);
-    
-    document.querySelectorAll('[homing-enemy]').forEach(enemy => {
-        enemy.setAttribute('homing-enemy', 'speed', 0); 
-    });
-
-    // 2. Mostrar la ventana de confirmación para reiniciar
-    setTimeout(() => {
-        // 'confirm' devuelve 'true' si el usuario presiona Aceptar
-        const shouldRestart = confirm("¡JUEGO TERMINADO! Has sido derrotado.\n\n¿Quieres reiniciar la partida?");
-
-        if (shouldRestart) {
-            // Reinicia el juego recargando la página.
-            window.location.reload(); 
-        } else {
-            // Opcional: Redirigir al menú principal si no quiere reiniciar
-            window.location.href = '../views/dashboard.php';
-        }
-    }, 100); 
-  },
 
   updateHealthText: function () {
     // Actualiza el elemento de texto en la pantalla si existe
