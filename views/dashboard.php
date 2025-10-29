@@ -127,7 +127,7 @@ session_start();
             </ul>
             <hr>
             <!-- Botón para abrir el modal -->
-             <?php
+<!--              <?php
 if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador'){
 echo    '<div class="p-3">
   <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
@@ -135,7 +135,7 @@ echo    '<div class="p-3">
   </button>
 </div>';
 }
-?>
+?> -->
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -185,7 +185,7 @@ echo    '<div class="p-3">
     </main>
 
     <!-- Modal Crear Usuario -->
-<div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
@@ -198,25 +198,26 @@ echo    '<div class="p-3">
         <div class="modal-body">
           <div class="row g-3">
             
-            <!-- Nombre completo -->
+            <!- Nombre completo 
             <div class="col-md-6">
               <label for="nombre_completo" class="form-label">Nombre completo</label>
               <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" required>
+              <input type="text" class="form-control" id="nombre_completo" name="username" required>
             </div>
 
-            <!-- documento -->
+            <!- documento 
             <div class="col-md-6">
               <label for="documento" class="form-label">documento</label>
               <input type="text" class="form-control" id="documento" name="documento" required>
             </div>
 
-            <!-- Correo -->
+            <!- Correo 
             <div class="col-md-6">
               <label for="email" class="form-label">Correo electrónico</label>
               <input type="email" class="form-control" id="email" name="email" required>
             </div>
 
-            <!-- Estado -->
+            <!- Estado 
             <div class="col-md-6">
               <label for="estado" class="form-label">Estado</label>
               <select class="form-select" id="estado" name="estado" required>
@@ -226,13 +227,13 @@ echo    '<div class="p-3">
               </select>
             </div>
 
-            <!-- Contraseña -->
+            <!- Contraseña 
             <div class="col-md-6">
               <label for="password" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
-            <!-- Rol -->
+            <!- Rol 
             <div class="col-md-6">
               <label for="rol" class="form-label">Rol</label>
               <select class="form-select" id="rol" name="rol" required>
@@ -254,7 +255,7 @@ echo    '<div class="p-3">
 
     </div>
   </div>
-</div>
+</div> -->
 
 <script src="../js/modal.js"></script>
 </body>

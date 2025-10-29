@@ -64,9 +64,10 @@ $(document).ready(function() {
 
         // Obtener valores de registro
         var email = $.trim($('#email-signup').val());
+        var username = $.trim($('#username-signup').val()); // Añadido para obtener el username
         var password = $.trim($('#password-signup').val());
 
-        if (!email || !password) {
+        if (!email || !username || !password) { // Añadido username a la validación
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -75,7 +76,7 @@ $(document).ready(function() {
         $.ajax({
             url: '/PROYECTO-SURVIVAL-/api/reg_user.php',
             method: 'POST',
-            data: { email: email, password: password },
+            data: { email: email, username: username, password: password }, // Añadido username a los datos enviados
             dataType: 'json',
             success: function (resp) {
                 if (resp.status === "success") {

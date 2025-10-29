@@ -30,6 +30,7 @@
     <!-- Precarga el modelo GLB -->
     <a-asset-item id="enemyModel" src="../assets/modelos/kuntilanak_indonesian_ghost.glb"></a-asset-item>
     <a-asset-item id="doorModel" src="../assets/modelos/garage_door.glb"></a-asset-item>
+    <a-asset-item id="easteregg" src="../assets/modelos/ghost_w_tophat.glb"></a-asset-item>
     </a-assets>
 
       <!-- Piso -->
@@ -106,6 +107,13 @@
           rotation="0 -90 0"
           puerta-control>
 </a-entity>
+
+  <a-entity id="easterEgg"
+          gltf-model="#easteregg"
+          position="-40 0.5 -24"
+          scale="1 1 1"
+          rotation="20 180 0"> <!-- Ejemplo: 20° en X (inclinado), 180° en Y (volteado), 0° en Z -->
+  </a-entity>
 
       <!-- Cámara con crosshair -->
       <a-entity id="player"

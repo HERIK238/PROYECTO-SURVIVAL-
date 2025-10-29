@@ -9,8 +9,15 @@ $(document).ready(function () {
     $('#formUsuarioDashboard').on('submit', function (e) {
         e.preventDefault(); // Evita el envío normal y la recarga
 
-        // Serializa todos los campos del formulario
-        var datos = $(this).serialize();
+        // Captura explícita de cada campo del formulario
+        var datos = {
+            username: $('#nombre_completo').val(),
+            documento: $('#documento').val(),
+            email: $('#email').val(),
+            estado: $('#estado').val(),
+            password: $('#password').val(),
+            rol: $('#rol').val()
+        };
 
         // Petición Ajax al endpoint PHP
         $.ajax({
