@@ -69,10 +69,11 @@ function mostrarMensajeVictoria() {
     icon: "success",
     allowOutsideClick: false,
     allowEscapeKey: false,
-    confirmButtonText: "Aceptar"
+    confirmButtonText: "Aceptar",
+  }).then((result) => {
+    if (result.isConfirmed) window.location.href = "../views/dashboard.php";
   });
 }
-
 /* (Opcional) Detener enemigo al ganar */
 function detenerJuego() {
   const enemy = document.querySelector("#enemy");
@@ -96,11 +97,19 @@ AFRAME.registerComponent("win-check", {
     const dist = playerPos.distanceTo(puertaPos);
 
     if (dist < 3) {
-      detenerJuego();      // <---- SE LLAMA AQUÍ
+      detenerJuego(); // <---- SE LLAMA AQUÍ
+      ocultarMapa();     
       mostrarMensajeVictoria(); // <---- SE LLAMA AQUÍ
     }
   }
 });
+
+function ocultarMapa() {
+  const scene = document.getElementById("game-scene");
+  if (scene) {
+    scene.style.display = "none"; // Oculta el mapa
+  }
+}
 
 // 🕹️ Iniciar temporizador
 window.addEventListener("load", iniciarTimer);
