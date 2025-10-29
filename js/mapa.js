@@ -1,6 +1,6 @@
 let totalCajas = 6; 
 let cajasAgarradas = 0;
-let tiempoRestante = 200; // 5 minutos
+let tiempoRestante = 200;
 let intervalo;
 
 const contadorEl = document.getElementById("contador");
@@ -16,37 +16,33 @@ function iniciarTimer() {
 
     if (tiempoRestante <= 0) {
       clearInterval(intervalo);
-      mostrarTimeoutOverlay(); // Muestra la alerta azul
+      mostrarTimeoutOverlay();
     }
   }, 1000);
 }
 
-// 🧩 Mostrar alerta de tiempo agotado
+// 🧩 Mostrar alerta tiempo agotado
 function mostrarTimeoutOverlay() {
-  timeoutOverlay.style.display = "flex"; // la muestra
+  timeoutOverlay.style.display = "flex";
 }
 
 // 🔄 Reintentar
 retryBtn.addEventListener("click", () => {
-  location.reload(); // reinicia el juego
+  location.reload();
 });
 
-
-// 🎮 Detectar clic en objetos con clase "clickable"
+// 🎮 Obtener cajas
 document.querySelector("#player").addEventListener("click", function (evt) {
   const intersected = evt.detail.intersectedEl;
 
   if (intersected && intersected.classList.contains("clickable")) {
-    // Eliminar caja
     intersected.parentNode.removeChild(intersected);
 
     cajasAgarradas++;
     contadorEl.textContent = "📦 Cajas: " + cajasAgarradas + " / " + totalCajas;
 
-    // Emitir evento global (otros componentes pueden reaccionar)
     document.querySelector('a-scene').emit('object-grabbed');
 
-    // ✅ Si ya recogió todas las cajas...
     if (cajasAgarradas >= totalCajas) {
       clearInterval(intervalo);
       console.log("✅ Todas las cajas recogidas. Abriendo puerta...");
@@ -55,18 +51,56 @@ document.querySelector("#player").addEventListener("click", function (evt) {
   }
 });
 
-// 🚪 Función para abrir la puerta (sin alerta)
+// 🚪 Abrir puerta
 function abrirPuerta() {
   const puertaEl = document.querySelector("#puerta");
 
   if (puertaEl) {
-    // Emitir evento para activar la animación del componente puerta-control
-    puertaEl.emit("abrir-puerta"); 
+    puertaEl.emit("abrir-puerta");
     console.log("🚪 La puerta se ha abierto automáticamente.");
-  } else {
-    console.warn("⚠️ No se encontró la puerta en la escena");
   }
 }
 
-// 🕹️ Inicia el temporizador al cargar la página
+/*  ⬇️⬇️⬇️  AQUI VA LA FUNCIÓN DE VICTORIA  ⬇️⬇️⬇️ */
+function mostrarMensajeVictoria() {
+  Swal.fire({
+    title: "🎉 ¡HAS ESCAPADO! 🎉",
+    text: "Has ganado el juego.",
+    icon: "success",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    confirmButtonText: "Aceptar"
+  });
+}
+
+/* (Opcional) Detener enemigo al ganar */
+function detenerJuego() {
+  const enemy = document.querySelector("#enemy");
+  if (enemy && enemy.components["homing-enemy"]) {
+    enemy.components["homing-enemy"].data.speed = 0;
+  }
+}
+
+/* ✅ Detección cuando pasas por la puerta */
+AFRAME.registerComponent("win-check", {
+  tick: function () {
+    const player = document.querySelector("#player");
+    const puerta = document.querySelector("#puerta");
+
+    const puertaControl = puerta.components["puerta-control"];
+    if (!puertaControl || !puertaControl.abierta) return;
+
+    const playerPos = player.object3D.position;
+    const puertaPos = puerta.object3D.position;
+
+    const dist = playerPos.distanceTo(puertaPos);
+
+    if (dist < 3) {
+      detenerJuego();      // <---- SE LLAMA AQUÍ
+      mostrarMensajeVictoria(); // <---- SE LLAMA AQUÍ
+    }
+  }
+});
+
+// 🕹️ Iniciar temporizador
 window.addEventListener("load", iniciarTimer);

@@ -23,7 +23,7 @@
   </head>
   <body>
 
-    <a-scene setup-lighting shadow="type: pcfsoft">
+    <a-scene setup-lighting shadow="type: pcfsoft" win-check>
 
     <a-assets>
     <!-- Precarga el modelo GLB -->
@@ -78,6 +78,15 @@
       <a-box class="clickable" position="-20 0.5 20" depth="1" height="1" width="1" color="#996633"></a-box>
       <a-box class="clickable" position="40 0.5 20" depth="1" height="1" width="1" color="#996633"></a-box>
       <a-box class="clickable" position="40 0.5 40" depth="1" height="1" width="1" color="#996633"></a-box>
+
+      <a-box id="win-zone"
+       position="49.5 1 7"
+       depth="3"
+       height="3"
+       width="4"
+       visible="false">
+      </a-box>
+
      
       <!-- Enemigo -->
   <a-entity id="enemy"
