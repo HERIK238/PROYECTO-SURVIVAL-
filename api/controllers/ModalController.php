@@ -21,7 +21,7 @@ class ModalController {
         }
 
         // Aquí se reciben los datos enviados por el modal
-        $username = $_POST['nombre_completo'] ?? '';
+        $username = $_POST['username'] ?? '';
         $documento = $_POST['documento'] ?? '';
         $email    = $_POST['email'] ?? '';
         $status   = $_POST['estado'] ?? '';

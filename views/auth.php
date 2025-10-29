@@ -36,15 +36,15 @@
           <form id="form-signup" method="post" >
             <div class="form-element form-stack">
               <label for="email-signup" class="form-label">Email</label>
-              <input id="email-signup" type="email" name="email">
+              <input id="email-signup" type="email" name="email" required>
             </div>
             <div class="form-element form-stack">
               <label for="username-signup" class="form-label">Username</label>
-              <input id="username-signup" type="text" name="username">
+              <input id="username-signup" type="text" name="username" required>
             </div>
             <div class="form-element form-stack">
               <label for="password-signup" class="form-label">Password</label>
-              <input id="password-signup" type="password" name="password">
+              <input id="password-signup" type="password" name="password" required>
             </div>
             <div class="form-element form-checkbox">
               <input id="confirm-terms" type="checkbox" name="confirm" value="yes" class="checkbox">
