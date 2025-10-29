@@ -81,3 +81,10 @@ AFRAME.registerComponent('homing-enemy', {
     this.el.sceneEl.removeEventListener('object-grabbed', this.onObjectGrabbed);
   }
 });
+
+function detenerJuego() {
+  const enemy = document.querySelector("#enemy");
+  if (enemy && enemy.components["homing-enemy"]) {
+    enemy.components["homing-enemy"].data.speed = 0;
+  }
+}
