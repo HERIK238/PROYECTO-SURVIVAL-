@@ -20,7 +20,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-  </head>
   <body>
 
     <a-scene id="game-scene" setup-lighting shadow="type: pcfsoft" win-check>
@@ -31,9 +30,19 @@
     <a-asset-item id="enemyModel" src="../assets/modelos/kuntilanak_indonesian_ghost.glb"></a-asset-item>
     <a-asset-item id="doorModel" src="../assets/modelos/garage_door.glb"></a-asset-item>
     <a-asset-item id="easteregg" src="../assets/modelos/ghost_w_tophat.glb"></a-asset-item>
+
+    <!-- Sonido de ambiente (asegúrate de que la ruta sea correcta) -->
+    <audio id="ambient-sound" src="../assets/sounds/horror-background-atmosphere-06-199279.mp3" preload="auto"></audio>
+
+    <!-- Assets para el Easter Egg -->
+    <img id="jumpscare-img" src="../assets/imagenes/IMG-20251029-WA0008.jpg" preload="auto">
+    <audio id="jumpscare-sfx" src="../assets/sounds/scary-scream-401725.mp3" preload="auto"></audio>
     </a-assets>
 
-      <!-- Piso -->
+    <!-- Sonido de ambiente -->
+    <a-entity id="ambient-music" sound="src: #ambient-sound; loop: true; volume: 0.4"></a-entity>
+
+    <!-- Piso -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png"></a-plane>
 
       <a-plane position="0 8 0" rotation="90 0 0" width="100" height="100" src="../metal/Concrete044C_4K-PNG_Color.png"></a-plane>
@@ -112,7 +121,12 @@
           gltf-model="#easteregg"
           position="-38 0.5 -22.5"
           scale="1 1 1"
-          rotation="0 230 0"> <!-- Ejemplo: 20° en X (inclinado), 180° en Y (volteado), 0° en Z -->
+          rotation="0 230 0"
+          easter-egg-trigger="soundEl: #jumpscare-sound; imageSelector: #jumpscare-overlay-image; distance: 20; player: #player; cooldown: 5000;">
+
+    <!-- Entidad para el sonido del susto -->
+    <a-entity id="jumpscare-sound" sound="src: #jumpscare-sfx; loop: false; autoplay: false; volume: 0.3"></a-entity>
+
   </a-entity>
 
       <!-- Cámara con crosshair -->
@@ -159,6 +173,9 @@
   </div>
 </div>
 
+<!-- Capa para el jumpscare del easter egg -->
+<div id="jumpscare-overlay-image" class="jumpscare-overlay" style="background-image: url(../assets/imagenes/IMG-20251029-WA0008.jpg);"></div>
+
 
 
     <div id="back-button-container">
@@ -178,6 +195,8 @@
     <script src="../js/lighting.js"></script>
     <script src="../js/orthographic-camera.js"></script>
     <script src="../js/puerta.js"></script>
+    <script src="../js/scene-setup.js"></script>
+    <script src="../js/easter-egg-trigger.js"></script>
 
   </body>
 </html>
