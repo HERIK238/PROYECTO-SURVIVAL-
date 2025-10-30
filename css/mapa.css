@@ -202,3 +202,22 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* Capa para el jumpscare del easter egg */
+.jumpscare-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 999999; /* Muy alto para que esté sobre todo */
+  display: none; /* Oculto por defecto */
+  pointer-events: none; /* No interfiere con los clics */
+}
+
+.jumpscare-overlay.show {
+  display: block;
+}
