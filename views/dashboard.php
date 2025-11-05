@@ -137,6 +137,13 @@ session_start();
                             </div>
                         </div>
                     </div>
+            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Bienvenido a Survival</h1>
+                    <p class="col-md-8 fs-4">
+                        El juego trata de escapar de un almacén abandonado. Debes encontrar <strong>6 cajas</strong> escondidas para desbloquear la salida. Pero ten cuidado, un enemigo te persigue y el tiempo corre en tu contra. ¡Buena suerte!
+                    </p>
+                    <a class="btn btn-danger btn-lg mt-3" href="../views/index.html" role="button">Iniciar Partida</a>
                 </div>
             </div> -->
 
@@ -146,13 +153,13 @@ session_start();
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li><strong>Movimiento:</strong> Usa las teclas <code>W</code>, <code>A</code>, <code>S</code>, <code>D</code> para moverte.</li>
+                            <li><strong>Movimiento:</strong> Usa las teclas <code>W</code>, <code>A</code>, <code>S</code> y <code>D</code> para moverte.</li>
                             <li><strong>Mirar:</strong> Mueve el ratón para mirar a tu alrededor.</li>
                             <li><strong>Interactuar:</strong> Haz clic con el ratón sobre las cajas para recogerlas.</li>
+                            <li><strong>¡Cuidado donde pisas!</strong> Si te caes del mapa, deberás presionar la tecla <code>Espacio</code> repetidamente para poder volver a la plataforma. ¡No te rindas!</p></li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
             <div class="mt-auto">
                 <?php require_once('../ui/footer.php'); ?>
