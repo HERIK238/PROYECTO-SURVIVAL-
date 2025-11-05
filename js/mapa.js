@@ -57,6 +57,7 @@ function abrirPuerta() {
 
   if (puertaEl) {
     puertaEl.emit("abrir-puerta");
+    puertaEl.classList.remove("collidable");
     console.log("🚪 La puerta se ha abierto automáticamente.");
   }
 }
