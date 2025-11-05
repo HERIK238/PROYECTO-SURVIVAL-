@@ -2,14 +2,17 @@
 AFRAME.registerComponent('fall-mechanic', {
   schema: {
     fallChance: { type: 'number', default: 0.001 }, // Small chance per tick
-    spacebarPresses: { type: 'number', default: 10 }
+    spacebarPresses: { type: 'number', default: 5 },
+    healthTextEl: {type: 'selector'}
   },
 
   init: function () {
     this.isFallen = false;
     this.pressCount = 0;
     this.player = this.el;
-    this.initialHeight = this.player.getAttribute('camera').userHeight || 1.6;
+    this.initialPosition = Object.assign({}, this.player.getAttribute('position'));
+    this.healthText = this.data.healthTextEl;
+    this.initialHealthTextPosition = Object.assign({}, this.healthText.getAttribute('position'));
 
     // Create UI text
     this.fallText = document.createElement('a-entity');
@@ -50,9 +53,12 @@ AFRAME.registerComponent('fall-mechanic', {
 
     // Lower camera and disable movement
     this.player.setAttribute('wasd-controls', 'enabled', false);
-    this.player.setAttribute('camera', 'userHeight', 0.2);
+    const currentPosition = this.player.getAttribute('position');
+    this.player.setAttribute('position', { x: currentPosition.x, y: 0.2, z: currentPosition.z });
 
     // Show text
+    this.fallText.setAttribute('position', '0 0.5 -1');
+    this.healthText.setAttribute('position', '0 0.6 -1.5');
     this.fallText.setAttribute('visible', 'true');
 
     // Listen for spacebar
@@ -77,7 +83,9 @@ AFRAME.registerComponent('fall-mechanic', {
 
     // Restore camera and movement
     this.player.setAttribute('wasd-controls', 'enabled', true);
-    this.player.setAttribute('camera', 'userHeight', this.initialHeight);
+    const currentPosition = this.player.getAttribute('position');
+    this.player.setAttribute('position', { x: currentPosition.x, y: this.initialPosition.y, z: currentPosition.z });
+    this.healthText.setAttribute('position', this.initialHealthTextPosition);
 
     // Hide text
     this.fallText.setAttribute('visible', 'false');
