@@ -84,79 +84,42 @@ session_start();
         </symbol>
     </svg>
 
-    <main class="d-flex flex-nowrap vh-100">
-
-        <!-- Sidebar --->
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <img src="../assets/icons/juran.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <span class="fs-4">Survival</span>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/icons/juran.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+                Survival
             </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item mb-2">
-                    <a href="../views/index.html" class="nav-link active" aria-current="page">
-                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        Survival
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                        Products
-                    </a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                        Customers
-                    </a>
-                </li>
-            </ul>
-            <hr>
-            <!-- Botón para abrir el modal -->
-<!--              <?php
-if(isset($_SESSION['rol']) && $_SESSION['rol'] === 'Administrador'){
-echo    '<div class="p-3">
-  <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
-    Crear Usuario
-  </button>
-</div>';
-}
-?> -->
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Usuario'; ?></strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><button id="logout-btn" class="btn dropdown-item logout-btn">Logout</button></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="../views/index.html">Iniciar Juego</a>
+                    </li>
                 </ul>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Usuario'; ?></strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small shadow">
+                        <li><button id="logout-btn" class="btn dropdown-item logout-btn">Logout</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </nav>
 
+    <main>
         <!-- Main Content -->
-        <div id="main-content" class="d-flex flex-column flex-grow-1 p-4" style="overflow-y: auto;">
+        <div id="main-content" class="container-fluid p-4">
             <div>
                 <h1>Dashboard</h1>
                 <p>Bienvenido al dashboard. Aquí puedes ver un resumen de la actividad.</p>
                 
-                <!-- Example content -->
+<!--              Example content
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
@@ -175,12 +138,25 @@ echo    '<div class="p-3">
                         </div>
                     </div>
                 </div>
+            </div> -->
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        Controles del Juego
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Movimiento:</strong> Usa las teclas <code>W</code>, <code>A</code>, <code>S</code>, <code>D</code> para moverte.</li>
+                            <li><strong>Mirar:</strong> Mueve el ratón para mirar a tu alrededor.</li>
+                            <li><strong>Interactuar:</strong> Haz clic con el ratón sobre las cajas para recogerlas.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="mt-auto">
                 <?php require_once('../ui/footer.php'); ?>
             </div>
-        </div>
 
     </main>
 
