@@ -156,7 +156,7 @@ session_start();
                             <li><strong>Movimiento:</strong> Usa las teclas <code>W</code>, <code>A</code>, <code>S</code> y <code>D</code> para moverte.</li>
                             <li><strong>Mirar:</strong> Mueve el ratón para mirar a tu alrededor.</li>
                             <li><strong>Interactuar:</strong> Haz clic con el ratón sobre las cajas para recogerlas.</li>
-                            <li><strong>¡Cuidado donde pisas!</strong> Si te caes del mapa, deberás presionar la tecla <code>Espacio</code> repetidamente para poder volver a la plataforma. ¡No te rindas!</p></li>
+                            <li><strong>¡Cuidado donde pisas!</strong> Si te caes al suelo, deberás presionar la tecla <code>Espacio</code> repetidamente para poder volver a levantarte. ¡No te rindas!</p></li>
                         </ul>
                     </div>
                 </div>
